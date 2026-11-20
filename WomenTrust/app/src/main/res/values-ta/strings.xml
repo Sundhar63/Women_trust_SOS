@@ -1,0 +1,258 @@
+<resources>
+    <string name="app_name">sahay4amdur</string>
+    <string name="header_name">sahay4amdur</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">sahay4amdur</string>
+    <string name="nav_header_subtitle">Infra materials</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_user">Add User</string>
+    <string name="action_add_product">Add Product</string>
+    <string name="action_add_data">Add Data</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Users</string>
+    <string name="menu_slideshow">Customers</string>
+    <string name="menu_product">Product</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_reports">Reports</string>
+    <string name="menu_invoice">Invoice</string>
+    <string name="menu_return">Return Product</string>
+    <string name="menu_cash_in_out">Cash In/Out</string>
+    <string name="menu_logout">Log out</string>
+    <string name="menu_view_invoice">All Invoices</string>
+    <string name="menu_pending_invoice">Pending Invoices</string>
+    <string name="menu_closed_invoice">Closed Invoices</string>
+    <string name="menu_view">View</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_print">Print</string>
+    <string name="menu_pdf">Pdf Document</string>
+
+    <string name="sharedpref_name">WomenTrust_Shared</string>
+    <string name="loadingtext">Loading..</string>
+    <string name="login_status">login_status</string>
+    <string name="userId">userId</string>
+    <string name="userCode">userCode</string>
+    <string name="mobile">mobile</string>
+    <string name="role">role</string>
+    <string name="status">status</string>
+    <string name="dateCreated">dateCreated</string>
+    <string name="dateUpdated">dateUpdated</string>
+    <string name="updatedBy">updatedBy</string>
+
+    <string name="printerName">PrinterName</string>
+    <string name="printerAddress">PrinterAddress</string>
+
+    <string name="server_conn_faild">Server not connected</string>
+    <string name="server_conn_success">Server connected successful.</string>
+    <string name="order_successful">Order Updated Successful.</string>
+    <string name="order_not_update">Order not updated.</string>
+
+    <string name="rupee_symbol">₹</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--  Languages supports  -->
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="tamil">தமிழ்</string>
+
+    <string name="change_language">மொழியை மாற்றவும்</string>
+    <string name="ok_text">சரி</string>
+    <string name="check_network_connection">இணைய இணைப்பை சரிபார்க்கவும்</string>
+    <string name="register_success">பயனர் பதிவு வெற்றிகரமாக முடிந்தது.</string>
+    <string name="register_unsuccess">பயனர் பதிவு தோல்வியடைந்தது</string>
+    <string name="exit_info">வெளியேற மீண்டும் பின்செல் பொத்தானை அழுத்தவும்.</string>
+
+    <!--  Login  -->
+    <string name="username">பயனர் பெயர்</string>
+    <string name="password">கடவுச்சொல்</string>
+
+    <string name="error_username">தவறான பயனர்பெயர்</string>
+    <string name="error_password">தவறான கடவுச்சொல்</string>
+
+    <string name="invalid_username">தவறான பயனர்பெயர்</string>
+    <string name="invalid_password">தவறான கடவுச்சொல்</string>
+
+    <string name="invaild_credentials">தவறான சான்றுகள்</string>
+    <string name="login_successful">உள்நுழைவு வெற்றி பெற்றது.</string>
+
+
+    <string name="forgot_password">கடவுச்சொல்லை மறந்துவிட்டீர்களா?</string>
+
+    <string name="sign_in">உள்நுழைக</string>
+
+    <string name="dont_have_account">கணக்கு இல்லையா?</string>
+
+    <string name="sign_up">பதிவு செய்யவும்</string>
+
+    <!--  Register  -->
+    <string name="register">பதிவு</string>
+
+    <string name="user_register">பயனர் பதிவு</string>
+
+    <string name="name">பெயர்</string>
+
+    <string name="mobile_number">கைபேசி எண்</string>
+
+    <string name="alternate_mobile_number">
+        மாற்று கைபேசி எண்
+    </string>
+
+    <string name="email">மின்னஞ்சல்</string>
+
+    <string name="address">முகவரி</string>
+
+    <string name="aadhar_number">ஆதார் எண்</string>
+
+    <string name="submit">சமர்ப்பிக்க</string>
+
+    <string name="already_have_account">
+        ஏற்கனவே கணக்கு உள்ளதா?
+    </string>
+
+    <string name="invalid_name">
+    பெயரை உள்ளிடவும்
+</string>
+
+    <string name="invalid_mobile_number">
+    கைபேசி எண்ணை உள்ளிடவும்
+</string>
+
+    <string name="invalid_mobile_length">
+    கைபேசி எண் 10 இலக்கமாக இருக்க வேண்டும்
+</string>
+
+    <string name="invalid_alternate_mobile">
+    மாற்று கைபேசி எண்ணை உள்ளிடவும்
+</string>
+
+    <string name="invalid_email">
+    மின்னஞ்சலை உள்ளிடவும்
+</string>
+
+    <string name="invalid_email_format">
+    சரியான மின்னஞ்சலை உள்ளிடவும்
+</string>
+
+
+    <string name="enter_username">பயனர் பெயரை உள்ளிடவும்</string>
+
+    <string name="enter_password">கடவுச்சொல்லை உள்ளிடவும்</string>
+
+
+    <string name="invalid_address">
+    முகவரியை உள்ளிடவும்
+</string>
+
+    <string name="invalid_aadhar">
+    ஆதார் எண்ணை உள்ளிடவும்
+</string>
+
+    <string name="invalid_aadhar_length">
+    ஆதார் எண் 12 இலக்கமாக இருக்க வேண்டும்
+</string>
+
+    <string name="password_length">
+    கடவுச்சொல் குறைந்தது 6 எழுத்துகள் இருக்க வேண்டும்
+</string>
+
+
+<!--    Dashboard-->
+    <string name="logout">வெளியேறு</string>
+    <string name="logout_alert">நீங்கள் உறுதியாக வெளியேற விரும்புகிறீர்களா?</string>
+    <string name="no_text">இல்லை</string>
+    <string name="yes_text">ஆம்</string>
+
+    <string name="domestic_violence">
+        குடும்ப வன்முறை
+    </string>
+
+    <string name="violence_work_place">
+        பணியிட வன்முறை
+    </string>
+
+    <string name="violence_public_place">
+        பொது இட வன்முறை
+    </string>
+
+    <string name="child_sexual_abuse">
+        குழந்தைகள் பாலியல் துஷ்பிரயோகம்
+    </string>
+
+    <!--    Abuse Activity-->
+    <string name="violence">வன்முறை</string>
+
+    <string name="category">வகை</string>
+
+    <string name="sub_violence">
+        துணை வன்முறை
+    </string>
+
+    <string name="category_violence">
+        வகை வன்முறை
+    </string>
+
+    <string name="sub_category_violence">
+        துணை வகை வன்முறை
+    </string>
+
+    <string name="violence_rating">
+        வன்முறை மதிப்பீடு
+    </string>
+
+    <string name="data_insert_success">
+        தரவு வெற்றிகரமாக உள்ளிடப்பட்டது.
+    </string>
+    <string name="data_insert_unsuccess">
+        தரவு உள்ளிடப்படவில்லை.
+    </string>
+
+    <string name="abuse_screen_title">
+        வன்முறை செயல்பாடு.
+    </string>
+
+
+<!--    Details Screen-->
+    <string name="view_details">விவரங்களை காண்க</string>
+    <string name="details">விவரங்கள்</string>
+    <string name="abuse_level">துஷ்பிரயோக நிலை :</string>
+    <string name="particulars">விபரங்கள்</string>
+    <string name="abuse_details">துஷ்பிரயோக விவரங்கள்</string>
+    <string name="abuse_category">துஷ்பிரயோக வகை</string>
+    <string name="contact_details">தொடர்பு விவரங்கள்</string>
+    <string name="contact_number">தொடர்பு எண்</string>
+    <string name="website">இணையதளம்</string>
+
+    <!-- AI Voice Assistant -->
+    <string name="voice_assistant_title">குரல் உதவி</string>
+    <string name="voice_instruction">உங்கள் பிரச்சனையை பேச மைக்-ஐ தொடவும்</string>
+    <string name="voice_ready">பதிவு செய்ய தயார்</string>
+    <string name="voice_record">குரல் பதிவு</string>
+    <string name="voice_recording">🔴 பதிவாகிறது... இப்போது பேசவும்! நிறுத்த மைக்-ஐ தொடவும்</string>
+    <string name="voice_recording_started">பதிவு தொடங்கியது! மைக்ரோஃபோனில் பேசவும், பிறகு மீண்டும் தொடவும்.</string>
+    <string name="voice_processing">AI மூலம் குரல் பகுப்பாய்வு செய்யப்படுகிறது...</string>
+    <string name="voice_analyzing">AI மூலம் குரல் பகுப்பாய்வு செய்யப்படுகிறது...</string>
+    <string name="voice_recording_stopped">பதிவு நிறுத்தப்பட்டது. AI மூலம் பகுப்பாய்வு செய்யப்படுகிறது...</string>
+    <string name="voice_no_audio">குரல் கேட்கவில்லை (பதிவு மிகக் குறுகியது அல்லது அமைதியானது). மைக்ரோஃபோனில் தெளிவாகப் பேசவும்.</string>
+    <string name="voice_failed_start">பதிவைத் தொடங்க முடியவில்லை: %1$s</string>
+    <string name="voice_failed_stop">பதிவை நிறுத்த முடியவில்லை: %1$s</string>
+    <string name="voice_permission_required">குரல் பதிவு செய்ய மைக்ரோஃபோன் அனுமதி தேவை</string>
+    <string name="voice_feature_unavailable">தற்போது குரல் அம்சம் கிடைக்கவில்லை. கைமுறை தேர்வைப் பயன்படுத்தவும்.</string>
+    <string name="voice_transcript_prefix">பேச்சு உரை: %1$s</string>
+    <string name="voice_no_violations">பதிவில் வன்முறை எதுவும் கண்டறியப்படவில்லை. பிரச்சனையை தெளிவாகப் பேசவும் அல்லது மேலே உள்ள வகையைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="voice_speech_not_detected">பேச்சை கண்டறிய முடியவில்லை. தயவுசெய்து மைக்ரோஃபோனில் தெளிவாகப் பேசவும்.</string>
+    <string name="voice_network_error">சேவையகத்தை அணுக முடியவில்லை: %1$s</string>
+    <string name="voice_network_default">இணைப்புப் பிழை</string>
+    <string name="voice_ai_detected_level">AI கண்டறிந்தது: %1$s (%2$d மீறல்கள்)</string>
+    <string name="voice_ai_detected_count">AI தானியங்கி தேர்வு முடிந்தது! (%1$d மீறல்கள்)</string>
+    <string name="voice_opening_report">AI மூலம் மீறல்கள் தானாக தேர்ந்தெடுக்கப்பட்டன (%1$d கண்டறியப்பட்டது). அறிக்கை திறக்கப்படுகிறது...</string>
+    <string name="voice_demo_testing">மாதிரி குரல் பதிவு மூலம் AI பரிசோதிக்கப்படுகிறது...</string>
+    <string name="voice_ai_detected_level_review">AI கண்டறிந்தது: %1$s (%2$d மீறல்கள்). மதிப்பாய்வு செய்து சமர்ப்பிக்கவும்.</string>
+    <string name="voice_ai_detected_count_review">AI உங்கள் குரலில் இருந்து %1$d மீறல்களைத் தேர்ந்தெடுத்துள்ளது. மதிப்பாய்வு செய்து சமர்ப்பிக்கவும்.</string>
+    <string name="abuse_level_high">அதிகம்</string>
+    <string name="abuse_level_medium">நடுத்தரம்</string>
+    <string name="abuse_level_low">குறைவு</string>
+</resources>
