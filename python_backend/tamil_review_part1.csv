@@ -1,0 +1,434 @@
+﻿table,code,english,context,tamil
+ViolenceMaster,1,Domestic Violence,Domestic Violence,குடும்ப வன்முறை
+ViolenceMaster,2,Workplace Violence,Workplace Violence,வேலை இட வன்முறை
+ViolenceMaster,3,Sexual Violence,Sexual Violence,லிங்க வன்முறை
+ViolenceMaster,4,Harassment / Other Violence,Harassment / Other Violence,துன்புறுத்தல்/பிற வன்முறை
+SubViolenceMaster,1,Intimate Partner Violence,Domestic Violence > Intimate Partner Violence,தம்பதியர் வன்முறை
+SubViolenceMaster,2,Family Violence,Domestic Violence > Family Violence,குடும்ப வன்முறை
+SubViolenceMaster,3,Substance Use Disorder,Domestic Violence > Substance Use Disorder,மருந்து பயன்பாட்டு பிரச்சனை
+SubViolenceMaster,4,Criminal Intent,Workplace Violence > Criminal Intent,குற்ற நோக்கம்
+SubViolenceMaster,5,Ideological Violence,Workplace Violence > Ideological Violence,நம்பிக்கை சார்ந்த வன்முறை
+SubViolenceMaster,6,Worker On Worker,Workplace Violence > Worker On Worker,தொழிலாளி-தொழிலாளி வன்முறை
+SubViolenceMaster,7,Personal Relationalship,Workplace Violence > Personal Relationalship,தனிப்பட்ட உறவு
+SubViolenceMaster,8,Sexual Harasment,Sexual Violence > Sexual Harasment,லிங்கத் துன்புறுத்தல்
+SubViolenceMaster,9,Assault & Rape,Sexual Violence > Assault & Rape,அதிகாரம் மற்றும் பாலியல் வன்முறை
+SubViolenceMaster,10,Relationship Affairs,Sexual Violence > Relationship Affairs,உறவு விவகாரங்கள்
+SubViolenceMaster,11,Eve Teasing,Sexual Violence > Eve Teasing,பெண்களைத் துன்புறுத்தல்
+SubViolenceMaster,12,"Shame, Mapping, Acid Attacks","Sexual Violence > Shame, Mapping, Acid Attacks","அவமானம், பாகுபாடு, அமில தாக்குதல்"
+SubViolenceMaster,13,Abuses & Harassment,Harassment / Other Violence > Abuses & Harassment,துன்புறுத்தல் மற்றும் தொல்லை
+CategoryViolenceMaster,1,Physical Abuse,Domestic Violence > Intimate Partner Violence > Physical Abuse,உடல் துன்புறுத்தல்
+CategoryViolenceMaster,2,Emotional Abuse,Domestic Violence > Intimate Partner Violence > Emotional Abuse,உணர்ச்சி துன்புறுத்தல்
+CategoryViolenceMaster,3,Finacial Abuse,Domestic Violence > Intimate Partner Violence > Finacial Abuse,நிதி துன்புறுத்தல்
+CategoryViolenceMaster,4,Sexual Abuse,Domestic Violence > Intimate Partner Violence > Sexual Abuse,லிங்க துன்புறுத்தல்
+CategoryViolenceMaster,5,Social Abuse,Domestic Violence > Intimate Partner Violence > Social Abuse,சமூக துன்புறுத்தல்
+CategoryViolenceMaster,6,Varbal Abuse,Domestic Violence > Intimate Partner Violence > Varbal Abuse,வார்த்தை துன்புறுத்தல்
+CategoryViolenceMaster,7,Cultural Abuse,Domestic Violence > Intimate Partner Violence > Cultural Abuse,கலாச்சார துன்புறுத்தல்
+CategoryViolenceMaster,8,Patenal Parental Abuse,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse,பெற்றோர் துன்புறுத்தல்
+CategoryViolenceMaster,9,Dowry Related Abuse,Domestic Violence > Family Violence > Dowry Related Abuse,மணமக்கள் தொடர்பான துன்புறுத்தல்
+CategoryViolenceMaster,10,Intra Women Relational Conflict,Domestic Violence > Family Violence > Intra Women Relational Conflict,பெண்களுக்குள் உறவுமோதல்
+CategoryViolenceMaster,11,Violence By Any Member Of The Family,Domestic Violence > Family Violence > Violence By Any Member Of The Family,குடும்ப உறுப்பினரால் வன்முறை
+CategoryViolenceMaster,12,Finacuial Explotiation,Domestic Violence > Substance Use Disorder > Finacuial Explotiation,நிதி சுரண்டல்
+CategoryViolenceMaster,13,Smoking And Drug Consumption,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption,புகைபிடித்தல் மற்றும் மருந்து உட்கொள்வது
+CategoryViolenceMaster,14,Women Ban For Work,Domestic Violence > Substance Use Disorder > Women Ban For Work,பெண்கள் வேலை செய்ய தடை
+CategoryViolenceMaster,15,Suspecting Women On Affairs At Work Place,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place,வேலை இடத்தில் பெண்கள் உறவுகள் கொண்டிருக்கிறார்கள் என்று சந்தேகித்தல்
+CategoryViolenceMaster,16,Commiting A Crime,Workplace Violence > Criminal Intent > Commiting A Crime,குற்றம் செய்யுதல்
+CategoryViolenceMaster,17,Sexual Harassment,Workplace Violence > Ideological Violence > Sexual Harassment,லிங்க பீடிப்பு
+CategoryViolenceMaster,18,"Political, Religious Threats","Workplace Violence > Ideological Violence > Political, Religious Threats","அரசியல், மத அச்சுறுத்தல்கள்"
+CategoryViolenceMaster,19,Intimidated By Specific Group,Workplace Violence > Ideological Violence > Intimidated By Specific Group,குறிப்பிட்ட குழுவால் பயமுறுத்தல்
+CategoryViolenceMaster,20,Intimidated By Unions,Workplace Violence > Ideological Violence > Intimidated By Unions,சங்கங்களால் பயமுறுத்தல்
+CategoryViolenceMaster,21,Aggression,Workplace Violence > Worker On Worker > Aggression,அதிரடி
+CategoryViolenceMaster,22,Humiliation Bullying,Workplace Violence > Worker On Worker > Humiliation Bullying,அவமானம் மற்றும் துன்புறுத்தல்
+CategoryViolenceMaster,23,Groupism,Workplace Violence > Worker On Worker > Groupism,குழு சார்பு
+CategoryViolenceMaster,24,Competition In Perfermance,Workplace Violence > Worker On Worker > Competition In Perfermance,செயல்திறன் போட்டி
+CategoryViolenceMaster,25,Victims Of Domestic Violence,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence,குடும்ப வன்முறையின் பாதிக்கப்பட்டவர்கள்
+CategoryViolenceMaster,26,Spouses Of Co Workers,Workplace Violence > Personal Relationalship > Spouses Of Co Workers,சக ஊழியர்களின் துணைவர்கள்
+CategoryViolenceMaster,27,Family Members As Co Workers,Workplace Violence > Personal Relationalship > Family Members As Co Workers,குடும்ப உறுப்பினர்கள் சக ஊழியர்கள்
+CategoryViolenceMaster,28,Extramarital Affairs At Work Place,Workplace Violence > Personal Relationalship > Extramarital Affairs At Work Place,வேலை இடத்தில் திருமணத்திற்கு வெளியே உறவுகள்
+CategoryViolenceMaster,29,Bad Touch During Travel,Sexual Violence > Sexual Harasment > Bad Touch During Travel,பயணத்தின் போது தவறான தொடுதல்
+CategoryViolenceMaster,30,Unwelcoming Sexual Remarks,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks,அவமதிப்பான லிங்கக் கருத்துகள்
+CategoryViolenceMaster,31,"Sexual Assault, Kidnap Threat","Sexual Violence > Sexual Harasment > Sexual Assault, Kidnap Threat","லிங்கத் தாக்குதல், கடத்தல் அச்சுறுத்தல்"
+CategoryViolenceMaster,32,"Gestures, Postures And Leering","Sexual Violence > Sexual Harasment > Gestures, Postures And Leering","சைகைகள், உடல் நிலை மற்றும் கண் பார்"
+CategoryViolenceMaster,33,Body Shaming,Sexual Violence > Sexual Harasment > Body Shaming,உடல் அவமதிப்பு
+CategoryViolenceMaster,34,Demonstration Of Power,Sexual Violence > Assault & Rape > Demonstration Of Power,அதிகாரக் காட்டுதல்
+CategoryViolenceMaster,35,Irrational Sexual Demands,Sexual Violence > Assault & Rape > Irrational Sexual Demands,தார்மீகமற்ற பாலியல் கோரிக்கைகள்
+CategoryViolenceMaster,36,Isolation Tactics,Sexual Violence > Assault & Rape > Isolation Tactics,தனிமைப்படுத்தல் முறைகள்
+CategoryViolenceMaster,37,Usage Of Drugs And Induction,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction,மருந்து பயன்பாடு மற்றும் ஊக்குவித்தல்
+CategoryViolenceMaster,38,Anonymous Communication,Sexual Violence > Relationship Affairs > Anonymous Communication,அநாமதேய தொடர்பு
+CategoryViolenceMaster,39,Emotional Attacks,Sexual Violence > Relationship Affairs > Emotional Attacks,உணர்ச்சி தாக்குதல்கள்
+CategoryViolenceMaster,40,Provocation By Appearances,Sexual Violence > Relationship Affairs > Provocation By Appearances,தோற்றம் மூலம் தூண்டல்
+CategoryViolenceMaster,41,Inducing Psychological Pain,Sexual Violence > Relationship Affairs > Inducing Psychological Pain,மனவலி ஏற்படுத்துதல்
+CategoryViolenceMaster,42,Distracting,Sexual Violence > Relationship Affairs > Distracting,கவனச்சிதறல்
+CategoryViolenceMaster,43,Sexually Suggestive Remarks,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks,பாலியல் சுட்டிக்காட்டும் கருத்துகள்
+CategoryViolenceMaster,44,Brusting To Gain Attension,Sexual Violence > Eve Teasing > Brusting To Gain Attension,கவன ஈர்ப்புக்காக கூச்சலிடுதல்
+CategoryViolenceMaster,45,"Catcalls, Grouping & Expanding Vulgarity","Sexual Violence > Eve Teasing > Catcalls, Grouping & Expanding Vulgarity","கூச்சல், கூட்டம் மற்றும் அவமதிப்பு விரிவாக்கம்"
+CategoryViolenceMaster,46,Inducing Fear,"Sexual Violence > Shame, Mapping, Acid Attacks > Inducing Fear",மனஅச்சம் ஏற்படுத்துதல்
+CategoryViolenceMaster,47,Taking Control Over Bodies,"Sexual Violence > Shame, Mapping, Acid Attacks > Taking Control Over Bodies",உடல் கட்டுப்படுத்தல்
+CategoryViolenceMaster,48,Fear Of Public Mark Of Shame,"Sexual Violence > Shame, Mapping, Acid Attacks > Fear Of Public Mark Of Shame",பொது அவமான குறியீட்டின் பயம்
+CategoryViolenceMaster,49,Physical,Harassment / Other Violence > Abuses & Harassment > Physical,உடல்
+CategoryViolenceMaster,50,Emotional,Harassment / Other Violence > Abuses & Harassment > Emotional,உணர்ச்சி
+CategoryViolenceMaster,51,Sexual Abuse,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse,பாலியல் துஷ்பிரயோகம்
+CategoryViolenceMaster,52,Neglect,Harassment / Other Violence > Abuses & Harassment > Neglect,புறக்கணிப்பு
+SubCategoryViolenceMaster,1,Hitting,Domestic Violence > Intimate Partner Violence > Physical Abuse > Hitting,அடி கொடுத்தல்
+SubCategoryViolenceMaster,2,Pushing,Domestic Violence > Intimate Partner Violence > Physical Abuse > Pushing,தள்ளுதல்
+SubCategoryViolenceMaster,3,Kicking,Domestic Violence > Intimate Partner Violence > Physical Abuse > Kicking,கால் அடித்தல்
+SubCategoryViolenceMaster,4,Hair Pulling,Domestic Violence > Intimate Partner Violence > Physical Abuse > Hair Pulling,முடி இழுத்தல்
+SubCategoryViolenceMaster,5,Slapping,Domestic Violence > Intimate Partner Violence > Physical Abuse > Slapping,கைதட்டுதல்
+SubCategoryViolenceMaster,6,Assault & Ashame,Domestic Violence > Intimate Partner Violence > Physical Abuse > Assault & Ashame,அதிகாரம் மற்றும் அவமானம்
+SubCategoryViolenceMaster,7,Rough Handling,Domestic Violence > Intimate Partner Violence > Physical Abuse > Rough Handling,கடுமையான நடத்தல்
+SubCategoryViolenceMaster,8,Scalding & Burning,Domestic Violence > Intimate Partner Violence > Physical Abuse > Scalding & Burning,சுட்டல் மற்றும் எரிதல்
+SubCategoryViolenceMaster,9,Physical Punishments,Domestic Violence > Intimate Partner Violence > Physical Abuse > Physical Punishments,உடல் தண்டனைகள்
+SubCategoryViolenceMaster,10,Inappropriate Uncomfortable Feeling,Domestic Violence > Intimate Partner Violence > Physical Abuse > Inappropriate Uncomfortable Feeling,அசாதாரண அசௌகரிய உணர்வு
+SubCategoryViolenceMaster,11,Involuntary Isolation Of Confinement,Domestic Violence > Intimate Partner Violence > Physical Abuse > Involuntary Isolation Of Confinement,வலியுறுத்தப்பட்ட தனிமை
+SubCategoryViolenceMaster,12,Misuse Of Medication,Domestic Violence > Intimate Partner Violence > Physical Abuse > Misuse Of Medication,மருந்தின் தவறான பயன்பாடு
+SubCategoryViolenceMaster,13,Forcing An Action,Domestic Violence > Intimate Partner Violence > Physical Abuse > Forcing An Action,செயலை வற்புறுத்தல்
+SubCategoryViolenceMaster,14,With Hold Food,Domestic Violence > Intimate Partner Violence > Physical Abuse > With Hold Food,உணவை மறுத்தல்
+SubCategoryViolenceMaster,15,Restricting Movement,Domestic Violence > Intimate Partner Violence > Physical Abuse > Restricting Movement,இயக்கத்தை கட்டுப்படுத்தல்
+SubCategoryViolenceMaster,16,Unauthorised Command To Obey,Domestic Violence > Intimate Partner Violence > Physical Abuse > Unauthorised Command To Obey,அனுமதியில்லாத கட்டளையை கடைபிடிக்க வற்புறுத்தல்
+SubCategoryViolenceMaster,17,Others,Domestic Violence > Intimate Partner Violence > Physical Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,18,Humiliating,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Humiliating,அவமானப்படுத்தல்
+SubCategoryViolenceMaster,19,Constantly Critising,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Constantly Critising,தொடர்ந்து விமர்சித்தல்
+SubCategoryViolenceMaster,20,Threatening,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Threatening,அச்சுறுத்தல்
+SubCategoryViolenceMaster,21,Shouting & Scolding,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Shouting & Scolding,கொந்தளித்தல் மற்றும் கடுமையான சுட்டுதல்
+SubCategoryViolenceMaster,22,Blaming,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Blaming,தவறை சுமத்தல்
+SubCategoryViolenceMaster,23,Scape Goating,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Scape Goating,தவறான குற்றம் ஒதுக்குதல்
+SubCategoryViolenceMaster,24,Forcing To Do Degrading Acts,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Forcing To Do Degrading Acts,அவமானமான செயல்களை செய்ய வற்புறுத்தல்
+SubCategoryViolenceMaster,25,Neglecting Emotionally,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Neglecting Emotionally,உணர்ச்சி புறக்கணித்தல்
+SubCategoryViolenceMaster,26,Beholding Needs,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Beholding Needs,தேவைகளை புறக்கணித்தல்
+SubCategoryViolenceMaster,27,Exposing To Upsetting Events,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Exposing To Upsetting Events,அசௌகரியமான நிகழ்வுகளுக்கு வெளிப்படுத்தல்
+SubCategoryViolenceMaster,28,Failing To Address Needs,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Failing To Address Needs,தேவைகளை பூர்த்தி செய்யாதல்
+SubCategoryViolenceMaster,29,Forced Isolation,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Forced Isolation,வலியுறுத்தப்பட்ட தனிமை
+SubCategoryViolenceMaster,30,Manipulating,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Manipulating,மனப்பயன் செய்தல்
+SubCategoryViolenceMaster,31,Failing To Express Positive Feeling,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Failing To Express Positive Feeling,நல்ல உணர்வுகளை வெளிப்படுத்தாதல்
+SubCategoryViolenceMaster,32,Others,Domestic Violence > Intimate Partner Violence > Emotional Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,33,Sabotaging Job,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Sabotaging Job,வேலை தடையூட்டல்
+SubCategoryViolenceMaster,34,Preventing To Opt A Career,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Preventing To Opt A Career,தொழில் தேர்வைத் தடுக்குதல்
+SubCategoryViolenceMaster,35,Purposefully Spoiling Work,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Purposefully Spoiling Work,திட்டமிட்டுப் பணியை கெடுக்குதல்
+SubCategoryViolenceMaster,36,With Holding Necessities,Domestic Violence > Intimate Partner Violence > Finacial Abuse > With Holding Necessities,அவசியப் பொருட்களை பிடித்துக் கொள்வது
+SubCategoryViolenceMaster,37,Controlling With Mone,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Controlling With Mone,பணத்தை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,38,Power Game With Money,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Power Game With Money,பணத்தால் அதிகார விளையாட்டு
+SubCategoryViolenceMaster,39,Constantly Pleading For Money,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Constantly Pleading For Money,தொடர்ந்து பணம் கோருதல்
+SubCategoryViolenceMaster,40,Voluntary Usage Without Inform Consent,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Voluntary Usage Without Inform Consent,அறிவிப்பு ஒப்புதல் இல்லாமல் சுயமாகப் பயன்படுத்துதல்
+SubCategoryViolenceMaster,41,Controlling The Finances,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Controlling The Finances,நிதிகளை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,42,Blaming Finances,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Blaming Finances,நிதிகளை குறைசொல்வது
+SubCategoryViolenceMaster,43,Controlling Spending Activities,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Controlling Spending Activities,செலவுகளை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,44,With Drawing From Financial Commitment,Domestic Violence > Intimate Partner Violence > Finacial Abuse > With Drawing From Financial Commitment,நிதி பொறுப்பைத் திரும்பப் பெறுதல்
+SubCategoryViolenceMaster,45,Frequently Pawn Brokering,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Frequently Pawn Brokering,அடிக்கடி பவுன் கடன் செய்யுதல்
+SubCategoryViolenceMaster,46,Others,Domestic Violence > Intimate Partner Violence > Finacial Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,47,Sexual Assault,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Sexual Assault,காமத் தாக்குதல்
+SubCategoryViolenceMaster,48,Rape,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Rape,விண்ணை
+SubCategoryViolenceMaster,49,Forced Sex,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Forced Sex,வலியுறுத்தப்பட்ட பாலியல் உறவு
+SubCategoryViolenceMaster,50,Threatening For Sexual Activity,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Threatening For Sexual Activity,காமச் செயலுக்கு மிரட்டல்
+SubCategoryViolenceMaster,51,Manipulation For Sexual Activity,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Manipulation For Sexual Activity,காமச் செயலுக்கு ஏமாற்றல்
+SubCategoryViolenceMaster,52,Uses Alcohol Or Drugs To Engage In Sexual Activity,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Uses Alcohol Or Drugs To Engage In Sexual Activity,காமச் செயலுக்கு மது அல்லது மருந்து பயன்படுத்துதல்
+SubCategoryViolenceMaster,53,Demands Sex When I Am Injured,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Demands Sex When I Am Injured,காயமடைந்த போது பாலியல் கோருதல்
+SubCategoryViolenceMaster,54,Sick Or Tired,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Sick Or Tired,நோயாக அல்லது சோர்வாக
+SubCategoryViolenceMaster,55,Pressures To Record Pornography,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Pressures To Record Pornography,போர்ன் படங்களை பதிவு செய்ய அழுத்துதல்
+SubCategoryViolenceMaster,56,Forces To Try Unusual Sex Postures,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Forces To Try Unusual Sex Postures,அசாதாரண பாலியல் நிலைகளை முயற்சிக்க வலியுறுத்துதல்
+SubCategoryViolenceMaster,57,Insults Or Embarrasses Me On A Sexual Way,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Insults Or Embarrasses Me On A Sexual Way,பாலியல் அவமதித்தல்
+SubCategoryViolenceMaster,58,Controls Access To Or Refuse To Use Contraception,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Controls Access To Or Refuse To Use Contraception,கருப்பைத் தடுப்பை பயன்படுத்துவதை கட்டுப்படுத்துதல் அல்லது மறுத்தல்
+SubCategoryViolenceMaster,59,Takes Sexual Images For Pleasure & Fun,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Takes Sexual Images For Pleasure & Fun,பாலியல் படங்களை மகிழ்ச்சிக்காக எடுத்தல்
+SubCategoryViolenceMaster,60,"Shares Sexual Images Of Their Partner ""Revenge""","Domestic Violence > Intimate Partner Violence > Sexual Abuse > Shares Sexual Images Of Their Partner ""Revenge""",தன் துணையின் பாலியல் படங்களை பழிவாங்குவதற்காக பகிர்தல்
+SubCategoryViolenceMaster,61,Using Jealousy As An Excuse To Control The Dress,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Using Jealousy As An Excuse To Control The Dress,உடை கட்டுப்படுத்துவதற்கு பொறாமையை காரணமாகக் கொள்வது
+SubCategoryViolenceMaster,62,Others,Domestic Violence > Intimate Partner Violence > Sexual Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,63,Scaring For Unknown Reasons,Domestic Violence > Intimate Partner Violence > Social Abuse > Scaring For Unknown Reasons,அறியாத காரணங்களுக்காக பயமுறுத்துதல்
+SubCategoryViolenceMaster,64,Controlling Day To Day Activity,Domestic Violence > Intimate Partner Violence > Social Abuse > Controlling Day To Day Activity,தினசரி செயல்களை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,65,Stops Me From Seeing Friends,Domestic Violence > Intimate Partner Violence > Social Abuse > Stops Me From Seeing Friends,நண்பர்களை பார்க்கும் வாய்ப்பைத் தடுக்குதல்
+SubCategoryViolenceMaster,66,Family & Others,Domestic Violence > Intimate Partner Violence > Social Abuse > Family & Others,குடும்பம் மற்றும் பிறர்
+SubCategoryViolenceMaster,67,Isolation,Domestic Violence > Intimate Partner Violence > Social Abuse > Isolation,தனிமைப்படுத்தல்
+SubCategoryViolenceMaster,68,Withdraws Information,Domestic Violence > Intimate Partner Violence > Social Abuse > Withdraws Information,தகவலை மறைத்தல்
+SubCategoryViolenceMaster,69,Preventing From Participation In Social Activities,Domestic Violence > Intimate Partner Violence > Social Abuse > Preventing From Participation In Social Activities,சமூக செயல்களில் பங்கேற்பதைத் தடுக்குதல்
+SubCategoryViolenceMaster,70,Publicizing The Participation,Domestic Violence > Intimate Partner Violence > Social Abuse > Publicizing The Participation,பங்கேற்பை வெளிப்படுத்துதல்
+SubCategoryViolenceMaster,71,Needing To Know Everyone You Have Seen Or See Planning,Domestic Violence > Intimate Partner Violence > Social Abuse > Needing To Know Everyone You Have Seen Or See Planning,"நீ சந்தித்த அல்லது சந்திக்க உள்ள அனைவரையும், அவர்களின் திட்டங்களையும் அறிய வேண்டியிருப்பது"
+SubCategoryViolenceMaster,72,Checking Or Interfering With Phone,Domestic Violence > Intimate Partner Violence > Social Abuse > Checking Or Interfering With Phone,தொலைபேசியை சரிபார்த்தல் அல்லது இடையூறு செய்தல்
+SubCategoryViolenceMaster,73,Mail,Domestic Violence > Intimate Partner Violence > Social Abuse > Mail,அஞ்சல்
+SubCategoryViolenceMaster,74,Social Media,Domestic Violence > Intimate Partner Violence > Social Abuse > Social Media,சமூக ஊடகம்
+SubCategoryViolenceMaster,75,Using Social Media To Spread Lies And Damages,Domestic Violence > Intimate Partner Violence > Social Abuse > Using Social Media To Spread Lies And Damages,சமூக ஊடகத்தை பொய்களைப் பரப்பவும் சேதங்களை ஏற்படுத்தவும் பயன்படுத்துதல்
+SubCategoryViolenceMaster,76,Tell Lies About You To Friends & Family,Domestic Violence > Intimate Partner Violence > Social Abuse > Tell Lies About You To Friends & Family,நண்பர்கள் மற்றும் குடும்பத்தினருக்கு உங்களைப் பற்றிய பொய்களைச் சொல்லுதல்
+SubCategoryViolenceMaster,77,Deliberately Make Me Delayed To Events,Domestic Violence > Intimate Partner Violence > Social Abuse > Deliberately Make Me Delayed To Events,நிகழ்வுகளில் நான் தாமதமாக வருமாறு திட்டமிட்டுக் கொள்வது
+SubCategoryViolenceMaster,78,Appointments Or Meetings,Domestic Violence > Intimate Partner Violence > Social Abuse > Appointments Or Meetings,நியமனங்கள் அல்லது கூட்டங்கள்
+SubCategoryViolenceMaster,79,Embarrasses Me In Front Of Every One,Domestic Violence > Intimate Partner Violence > Social Abuse > Embarrasses Me In Front Of Every One,என்னை அனைவரின் முன்னிலும் வெட்கப்படுத்துதல்
+SubCategoryViolenceMaster,80,Restrict Access To Car & Other Form Of Transport,Domestic Violence > Intimate Partner Violence > Social Abuse > Restrict Access To Car & Other Form Of Transport,கார் மற்றும் பிற போக்குவரத்து முறைகளுக்கு அணுகலைக் கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,81,Others,Domestic Violence > Intimate Partner Violence > Social Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,82,Yelling,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Yelling,கொந்தளித்தல்
+SubCategoryViolenceMaster,83,Criticising,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Criticising,குறைசொல்லுதல்
+SubCategoryViolenceMaster,84,Swearing And Labelling By Hurtful Names,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Swearing And Labelling By Hurtful Names,அவமானகரமான பெயர்களால் சாபம் கூறுதல்
+SubCategoryViolenceMaster,85,Demanding,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Demanding,கோரிக்கை செய்தல்
+SubCategoryViolenceMaster,86,Ordering,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Ordering,ஆணை செய்தல்
+SubCategoryViolenceMaster,87,Gas Lighting,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Gas Lighting,மனதை குழப்பி உண்மையை மறுப்பது
+SubCategoryViolenceMaster,88,Manipulating,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Manipulating,மனப்பாங்கை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,89,Patronising,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Patronising,அதிகாரமாக நடத்துதல்
+SubCategoryViolenceMaster,90,Blaming,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Blaming,தவறை சுமத்துதல்
+SubCategoryViolenceMaster,91,Ridiculing,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Ridiculing,நகைச்சுவை செய்து அவமதித்தல்
+SubCategoryViolenceMaster,92,Shaming,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Shaming,அவமானப்படுத்துதல்
+SubCategoryViolenceMaster,93,Swearing / Belittle,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Swearing / Belittle,சாபம் கூறி அவமதித்தல்
+SubCategoryViolenceMaster,94,Insulting,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Insulting,அவமதித்தல்
+SubCategoryViolenceMaster,95,Silent Treatment,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Silent Treatment,மௌனத் தண்டனை
+SubCategoryViolenceMaster,96,Others,Domestic Violence > Intimate Partner Violence > Varbal Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,97,"Tells Me You Are ""Too Much"" Or ""Not Enough"" Of Their Culture","Domestic Violence > Intimate Partner Violence > Cultural Abuse > Tells Me You Are ""Too Much"" Or ""Not Enough"" Of Their Culture",நீங்கள் அவர்களின் கலாச்சாரத்திற்கு அதிகமாகவோ அல்லது போதுமானதாகவோ இல்லை என்று கூறுதல்
+SubCategoryViolenceMaster,98,Labels I Am Not Obey Cultural / Religion Ethics,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Labels I Am Not Obey Cultural / Religion Ethics,கலாச்சார/மத நெறிகளை பின்பற்றவில்லை என்று குறைசொல்லுதல்
+SubCategoryViolenceMaster,99,Forcing Cultural / Spiritual Practices Upon Someone,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Forcing Cultural / Spiritual Practices Upon Someone,கலாச்சார/ஆன்மீக பழக்கங்களைத் திணிக்குதல்
+SubCategoryViolenceMaster,100,Constructing False Beliefs On Cultural / Religious Prospects,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Constructing False Beliefs On Cultural / Religious Prospects,கலாச்சார/மத பார்வைகளில் பொய்யான நம்பிக்கைகளை உருவாக்குதல்
+SubCategoryViolenceMaster,101,Preventing From Involving In Religious Praticies,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Preventing From Involving In Religious Praticies,மதச் செயல்களில் பங்கேற்கத் தடை செய்தல்
+SubCategoryViolenceMaster,102,Ignores & Forces To Go Against Dietary Constraints,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Ignores & Forces To Go Against Dietary Constraints,"உணவு கட்டுப்பாடுகளை புறக்கணித்து, அவற்றுக்கு எதிராக செய்யத் திணிக்குதல்"
+SubCategoryViolenceMaster,103,Twisting The Ideologies To Go Against The Belief Of God,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Twisting The Ideologies To Go Against The Belief Of God,கடவுளின் நம்பிக்கைக்கு எதிராக சிந்தனைகளை வளைத்தல்
+SubCategoryViolenceMaster,104,Threatening To Out Of My Own Beliefs,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Threatening To Out Of My Own Beliefs,என் நம்பிக்கைகளை காரணமாக மிரட்டுதல்
+SubCategoryViolenceMaster,105,Others,Domestic Violence > Intimate Partner Violence > Cultural Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,106,Maltreatment,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Maltreatment,துன்புறுத்தல்
+SubCategoryViolenceMaster,107,Wrong Guidance By The Parents,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Wrong Guidance By The Parents,பெற்றோரின் தவறான வழிகாட்டல்
+SubCategoryViolenceMaster,108,Unhelpful To Render Support At Hard Times,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Unhelpful To Render Support At Hard Times,கஷ்ட காலங்களில் ஆதரவு வழங்காமை
+SubCategoryViolenceMaster,109,Opposing At Difficult Situations,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Opposing At Difficult Situations,கஷ்டமான சூழ்நிலைகளில் எதிர்ப்பு
+SubCategoryViolenceMaster,110,Neglected By Parents For Shelter,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Neglected By Parents For Shelter,பெற்றோரின் வீட்டு தங்குமிடம் வழங்காமை
+SubCategoryViolenceMaster,111,Maintenance,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Maintenance,பராமரிப்பு
+SubCategoryViolenceMaster,112,Creating Obstacles For Self Development,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Creating Obstacles For Self Development,சுய வளர்ச்சிக்கு தடைகள் உருவாக்குதல்
+SubCategoryViolenceMaster,113,Presenting Contradictory Ideas On Well Being,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Presenting Contradictory Ideas On Well Being,நலனுக்கான முரண்பட்ட கருத்துகளை முன்வைத்தல்
+SubCategoryViolenceMaster,114,Negative Or Unfavourable Influence,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Negative Or Unfavourable Influence,எதிர்மறை அல்லது அநுகூலமற்ற தாக்கம்
+SubCategoryViolenceMaster,115,Exploiting For The Benefit Of Finance,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Exploiting For The Benefit Of Finance,நிதி நலனுக்காக பயன்படுத்துதல்
+SubCategoryViolenceMaster,116,Others,Domestic Violence > Intimate Partner Violence > Patenal Parental Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,117,Intentional Setting To Fire Or Acid Attacks,Domestic Violence > Family Violence > Dowry Related Abuse > Intentional Setting To Fire Or Acid Attacks,தீ அல்லது அமில தாக்குதல்களை திட்டமிட்டாக ஏற்படுத்துதல்
+SubCategoryViolenceMaster,118,Psychological Manipulation,Domestic Violence > Family Violence > Dowry Related Abuse > Psychological Manipulation,மனோவியல் கட்டுப்பாடு
+SubCategoryViolenceMaster,119,Voluntary Drive To Fed Worthless,Domestic Violence > Family Violence > Dowry Related Abuse > Voluntary Drive To Fed Worthless,தன்னார்வமாக மதிப்பற்றதாக உணர்த்துதல்
+SubCategoryViolenceMaster,120,Isolating,Domestic Violence > Family Violence > Dowry Related Abuse > Isolating,தனிமைப்படுத்தல்
+SubCategoryViolenceMaster,121,Compelled Loneliness,Domestic Violence > Family Violence > Dowry Related Abuse > Compelled Loneliness,கட்டாய தனிமை
+SubCategoryViolenceMaster,122,Obliging To Forced Demands,Domestic Violence > Family Violence > Dowry Related Abuse > Obliging To Forced Demands,வலியுறுத்தப்பட்ட கோரிக்கைகளை பூர்த்தி செய்யுதல்
+SubCategoryViolenceMaster,123,Preventing Me From Accessing My Own Resources,Domestic Violence > Family Violence > Dowry Related Abuse > Preventing Me From Accessing My Own Resources,என் சொந்த வளங்களை அணுகுவதைத் தடுக்குதல்
+SubCategoryViolenceMaster,124,Controls My Daily Life And Expands Power,Domestic Violence > Family Violence > Dowry Related Abuse > Controls My Daily Life And Expands Power,தினசரி வாழ்க்கையை கட்டுப்படுத்தி அதிகாரத்தை விரிவாக்குதல்
+SubCategoryViolenceMaster,125,Others,Domestic Violence > Family Violence > Dowry Related Abuse > Others,மற்றவை
+SubCategoryViolenceMaster,126,Exercising Harm In Public,Domestic Violence > Family Violence > Intra Women Relational Conflict > Exercising Harm In Public,பொது இடங்களில் தீங்கு விளைவித்தல்
+SubCategoryViolenceMaster,127,Disturbing The Emotional Well Being,Domestic Violence > Family Violence > Intra Women Relational Conflict > Disturbing The Emotional Well Being,உணர்ச்சி நலனை குழப்புதல்
+SubCategoryViolenceMaster,128,Escalation To Abusive Situations,Domestic Violence > Family Violence > Intra Women Relational Conflict > Escalation To Abusive Situations,துஷ்பிரயோக சூழ்நிலைகளுக்கு அதிகரித்தல்
+SubCategoryViolenceMaster,129,Blocking Support Network,Domestic Violence > Family Violence > Intra Women Relational Conflict > Blocking Support Network,ஆதரவு வலையமைப்பைத் தடுப்பது
+SubCategoryViolenceMaster,130,Leaving Me Financially Vulnerable,Domestic Violence > Family Violence > Intra Women Relational Conflict > Leaving Me Financially Vulnerable,நிதி ரீதியாக பாதிக்கப்படுத்துதல்
+SubCategoryViolenceMaster,131,Others,Domestic Violence > Family Violence > Intra Women Relational Conflict > Others,மற்றவை
+SubCategoryViolenceMaster,132,Making Me Powerless,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Making Me Powerless,என்னை சக்தியற்றவராக மாற்றுதல்
+SubCategoryViolenceMaster,133,Forcing To Obey Irrational Set Of Practices,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Forcing To Obey Irrational Set Of Practices,அர்த்தமற்ற பழக்கவழக்கங்களை பின்பற்ற கட்டாயப்படுத்துதல்
+SubCategoryViolenceMaster,134,Blaming On The Character,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Blaming On The Character,என் குணத்தை குறைசொல்லுதல்
+SubCategoryViolenceMaster,135,Robbing The Sense Of Identify,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Robbing The Sense Of Identify,அடையாள உணர்வை பறித்தல்
+SubCategoryViolenceMaster,136,Burdening With Household Responsibilities,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Burdening With Household Responsibilities,வீட்டு கடமைகளை அதிகமாக சுமத்துதல்
+SubCategoryViolenceMaster,137,Abolishing The Recreating Or Rehabilitation Activities,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Abolishing The Recreating Or Rehabilitation Activities,மீளுணர்வு அல்லது பொழுதுபோக்கு நடவடிக்கைகளை நீக்குதல்
+SubCategoryViolenceMaster,138,Others,Domestic Violence > Family Violence > Violence By Any Member Of The Family > Others,மற்றவை
+SubCategoryViolenceMaster,139,Drain In Family Finances Due To Direct Purchase Costs,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Drain In Family Finances Due To Direct Purchase Costs,நேரடி வாங்கும் செலவுகளால் குடும்ப நிதி சுருங்குதல்
+SubCategoryViolenceMaster,140,Destabilizing Household Like Selling Jewels,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Destabilizing Household Like Selling Jewels,நகைகள் விற்பனை செய்வதன் மூலம் குடும்பத்தை நிலைமாறாக்குதல்
+SubCategoryViolenceMaster,141,Vessels & Ones,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Vessels & Ones,உறுப்பினர்கள் மற்றும் மற்றவர்கள்
+SubCategoryViolenceMaster,142,Increased Medical Coast As Effect Of Alcoholism & Addiction,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Increased Medical Coast As Effect Of Alcoholism & Addiction,மதுபானம் மற்றும் அடிமை காரணமாக மருத்துவ செலவுகள் அதிகரித்தல்
+SubCategoryViolenceMaster,143,Financial Burden Of Debits,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Financial Burden Of Debits,கடன்களின் நிதி சுமை
+SubCategoryViolenceMaster,144,Loans And High Interest Exorbitant,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Loans And High Interest Exorbitant,அதிக வட்டி கொண்ட கடன்கள்
+SubCategoryViolenceMaster,145,Per Petuating Cycle Of Poverty,Domestic Violence > Substance Use Disorder > Finacuial Explotiation > Per Petuating Cycle Of Poverty,வறுமை சுழற்சியை தொடருதல்
+SubCategoryViolenceMaster,146,Lack Of Trust Issues,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption > Lack Of Trust Issues,நம்பிக்கையின்மை
+SubCategoryViolenceMaster,147,Emotional Stress Of Witnessing The Consumption Activity,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption > Emotional Stress Of Witnessing The Consumption Activity,பயன்பாட்டு செயல்களைப் பார்த்து உணர்ச்சி அழுத்தம்
+SubCategoryViolenceMaster,148,Unhealthy Communication Patterns,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption > Unhealthy Communication Patterns,ஆரோக்கியமற்ற தொடர்பு முறைகள்
+SubCategoryViolenceMaster,149,Violence Due To Dosing Behaviour,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption > Violence Due To Dosing Behaviour,மருந்து பயன்பாட்டின் காரணமாக வன்முறை
+SubCategoryViolenceMaster,150,Side Effects Of Secondary Smoking,Domestic Violence > Substance Use Disorder > Smoking And Drug Consumption > Side Effects Of Secondary Smoking,இரண்டாம் நிலை புகைபிடிப்பின் பக்க விளைவுகள்
+SubCategoryViolenceMaster,151,Underestimating The Ability To Work,Domestic Violence > Substance Use Disorder > Women Ban For Work > Underestimating The Ability To Work,வேலை திறனை குறை மதிப்பிடுதல்
+SubCategoryViolenceMaster,152,Discouraging From Exhibiting Skills,Domestic Violence > Substance Use Disorder > Women Ban For Work > Discouraging From Exhibiting Skills,திறமைகளை வெளிப்படுத்துவதைத் தடுக்குதல்
+SubCategoryViolenceMaster,153,Foreign To Quit Job,Domestic Violence > Substance Use Disorder > Women Ban For Work > Foreign To Quit Job,வேலை விட்டு வெளியேறுவதற்கு வெளிப்புற அழுத்தம்
+SubCategoryViolenceMaster,154,Operating The Background By Constant Follow Up Chasing,Domestic Violence > Substance Use Disorder > Women Ban For Work > Operating The Background By Constant Follow Up Chasing,தொடர்ந்து பின்தொடர்ந்து கண்காணிப்பதன் மூலம் பின்னணியை கட்டுப்படுத்துதல்
+SubCategoryViolenceMaster,155,Gathering Evidence Of Functions At Work With Co Workers,Domestic Violence > Substance Use Disorder > Women Ban For Work > Gathering Evidence Of Functions At Work With Co Workers,சக ஊழியர்களுடன் வேலை செயல்பாடுகளின் ஆதாரங்களை சேகரித்தல்
+SubCategoryViolenceMaster,156,None Recognizing The Inherent Worth,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place > None Recognizing The Inherent Worth,உள்ளார்ந்த மதிப்பை எவரும் அங்கீகரிக்காதல்
+SubCategoryViolenceMaster,157,Devaluing The Work Contributions,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place > Devaluing The Work Contributions,
+SubCategoryViolenceMaster,158,With Holding Growing Opportunities,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place > With Holding Growing Opportunities,
+SubCategoryViolenceMaster,159,Failure To Create A Respectable Environment,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place > Failure To Create A Respectable Environment,
+SubCategoryViolenceMaster,160,Encouraging Anonymous Communication,Domestic Violence > Substance Use Disorder > Suspecting Women On Affairs At Work Place > Encouraging Anonymous Communication,
+SubCategoryViolenceMaster,161,Motivating To Involve In Robbery,Workplace Violence > Criminal Intent > Commiting A Crime > Motivating To Involve In Robbery,
+SubCategoryViolenceMaster,162,Forcing To Be Involved In Strikes,Workplace Violence > Criminal Intent > Commiting A Crime > Forcing To Be Involved In Strikes,
+SubCategoryViolenceMaster,163,Decreased Productivity,Workplace Violence > Criminal Intent > Commiting A Crime > Decreased Productivity,
+SubCategoryViolenceMaster,164,Disturbing Workplace Environment,Workplace Violence > Criminal Intent > Commiting A Crime > Disturbing Workplace Environment,
+SubCategoryViolenceMaster,165,Increasing Stress By Work Target,Workplace Violence > Criminal Intent > Commiting A Crime > Increasing Stress By Work Target,
+SubCategoryViolenceMaster,166,Creating The Risk To Health,Workplace Violence > Criminal Intent > Commiting A Crime > Creating The Risk To Health,
+SubCategoryViolenceMaster,167,Exchanging Cash,Workplace Violence > Criminal Intent > Commiting A Crime > Exchanging Cash,
+SubCategoryViolenceMaster,168,Changing Shifts Without,Workplace Violence > Criminal Intent > Commiting A Crime > Changing Shifts Without,
+SubCategoryViolenceMaster,169,Bullying,Workplace Violence > Criminal Intent > Commiting A Crime > Bullying,
+SubCategoryViolenceMaster,170,Emotional Abuse & Abuse,Workplace Violence > Criminal Intent > Commiting A Crime > Emotional Abuse & Abuse,
+SubCategoryViolenceMaster,171,Threatened Beliefs About The Future,Workplace Violence > Criminal Intent > Commiting A Crime > Threatened Beliefs About The Future,
+SubCategoryViolenceMaster,172,Others,Workplace Violence > Criminal Intent > Commiting A Crime > Others,
+SubCategoryViolenceMaster,173,Request For Sexual Favour,Workplace Violence > Ideological Violence > Sexual Harassment > Request For Sexual Favour,
+SubCategoryViolenceMaster,174,Unwelcome Sexual Advances Or Conduct,Workplace Violence > Ideological Violence > Sexual Harassment > Unwelcome Sexual Advances Or Conduct,
+SubCategoryViolenceMaster,175,Injustices In Punishment,Workplace Violence > Ideological Violence > Sexual Harassment > Injustices In Punishment,
+SubCategoryViolenceMaster,176,Employer Fails To Address Known Instance Of Sexual Harassment,Workplace Violence > Ideological Violence > Sexual Harassment > Employer Fails To Address Known Instance Of Sexual Harassment,
+SubCategoryViolenceMaster,177,Failing To Investigate The Complaints,Workplace Violence > Ideological Violence > Sexual Harassment > Failing To Investigate The Complaints,
+SubCategoryViolenceMaster,178,Gender Favours,Workplace Violence > Ideological Violence > Sexual Harassment > Gender Favours,
+SubCategoryViolenceMaster,179,Attacker Occupying The Position Of Power,Workplace Violence > Ideological Violence > Sexual Harassment > Attacker Occupying The Position Of Power,
+SubCategoryViolenceMaster,180,Lack Of Adequate Security & Protection System,Workplace Violence > Ideological Violence > Sexual Harassment > Lack Of Adequate Security & Protection System,
+SubCategoryViolenceMaster,181,Failure To Acknowledge Individual Right To File A Law Suit,Workplace Violence > Ideological Violence > Sexual Harassment > Failure To Acknowledge Individual Right To File A Law Suit,
+SubCategoryViolenceMaster,182,Others,Workplace Violence > Ideological Violence > Sexual Harassment > Others,மற்றவை
+SubCategoryViolenceMaster,183,Manifestation Of Opposing Ideologies,"Workplace Violence > Ideological Violence > Political, Religious Threats > Manifestation Of Opposing Ideologies",எதிர் கருத்துக்களின் வெளிப்பாடு
+SubCategoryViolenceMaster,184,Occurrence Of Hate Crimes,"Workplace Violence > Ideological Violence > Political, Religious Threats > Occurrence Of Hate Crimes",வெறுப்பு குற்றங்களின் நிகழ்வு
+SubCategoryViolenceMaster,185,Target Attacks,"Workplace Violence > Ideological Violence > Political, Religious Threats > Target Attacks",இலக்கு தாக்குதல்கள்
+SubCategoryViolenceMaster,186,Active Shooter Incidents,"Workplace Violence > Ideological Violence > Political, Religious Threats > Active Shooter Incidents",செயலில் இருக்கும் துப்பாக்கி தாக்குதல் நிகழ்வுகள்
+SubCategoryViolenceMaster,187,Working Against Organisation Myths,"Workplace Violence > Ideological Violence > Political, Religious Threats > Working Against Organisation Myths",அமைப்பு கற்பனைகளுக்கு எதிராக செயல்படுதல்
+SubCategoryViolenceMaster,188,Suspicion With Former Co-Workers,"Workplace Violence > Ideological Violence > Political, Religious Threats > Suspicion With Former Co-Workers",முன்பு பணியாளர்களை பற்றிய சந்தேகம்
+SubCategoryViolenceMaster,189,Others,"Workplace Violence > Ideological Violence > Political, Religious Threats > Others",மற்றவை
+SubCategoryViolenceMaster,190,Terrorism,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Terrorism,தீவிரவாதம்
+SubCategoryViolenceMaster,191,Religious Extremism,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Religious Extremism,மத தீவிரவாதம்
+SubCategoryViolenceMaster,192,Involve In Ideology,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Involve In Ideology,நம்பிக்கையில் ஈடுபடுதல்
+SubCategoryViolenceMaster,193,Back Stabbing Deviating From Own Beliefs,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Back Stabbing Deviating From Own Beliefs,தன் நம்பிக்கைகளை விட்டு விலகி பின்னால் குத்துதல்
+SubCategoryViolenceMaster,194,Involvement In Political Violence,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Involvement In Political Violence,அரசியல் வன்முறையில் ஈடுபாடு
+SubCategoryViolenceMaster,195,Targeting Opposing Ideologies,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Targeting Opposing Ideologies,எதிர் கருத்துக்களை இலக்காகக் கொள்வது
+SubCategoryViolenceMaster,196,Others,Workplace Violence > Ideological Violence > Intimidated By Specific Group > Others,மற்றவை
+SubCategoryViolenceMaster,197,Forced Involvement In Labour Disputes,Workplace Violence > Ideological Violence > Intimidated By Unions > Forced Involvement In Labour Disputes,தொழிலாளர் விவாதங்களில் கட்டாய ஈடுபாடு
+SubCategoryViolenceMaster,198,Weakening Existing Unions,Workplace Violence > Ideological Violence > Intimidated By Unions > Weakening Existing Unions,இருக்கும் சங்கங்களை பலவீனப்படுத்துதல்
+SubCategoryViolenceMaster,199,Not Obeying Union Rules,Workplace Violence > Ideological Violence > Intimidated By Unions > Not Obeying Union Rules,சங்க விதிகளை பின்பற்றாதல்
+SubCategoryViolenceMaster,200,Resistance To Strikes And Lock Out,Workplace Violence > Ideological Violence > Intimidated By Unions > Resistance To Strikes And Lock Out,பணி நிறுத்தம் மற்றும் பூட்டலுக்கு எதிர்ப்பு
+SubCategoryViolenceMaster,201,Resisting Union Ideologies,Workplace Violence > Ideological Violence > Intimidated By Unions > Resisting Union Ideologies,சங்க கருத்துக்களுக்கு எதிர்ப்பு
+SubCategoryViolenceMaster,202,Against The Trust Of The Union Policies,Workplace Violence > Ideological Violence > Intimidated By Unions > Against The Trust Of The Union Policies,சங்க கொள்கைகளின் நம்பிக்கையை எதிர்த்தல்
+SubCategoryViolenceMaster,203,Suppressing Union Participation,Workplace Violence > Ideological Violence > Intimidated By Unions > Suppressing Union Participation,சங்க பங்கேற்பை ஒடுக்குதல்
+SubCategoryViolenceMaster,204,Others,Workplace Violence > Ideological Violence > Intimidated By Unions > Others,மற்றவை
+SubCategoryViolenceMaster,205,Violent Behaviour,Workplace Violence > Worker On Worker > Aggression > Violent Behaviour,வன்முறை நடத்தை
+SubCategoryViolenceMaster,206,Damaging Social Status,Workplace Violence > Worker On Worker > Aggression > Damaging Social Status,சமூக நிலையை சேதப்படுத்துதல்
+SubCategoryViolenceMaster,207,Stalking,Workplace Violence > Worker On Worker > Aggression > Stalking,பின்தொடர்தல்
+SubCategoryViolenceMaster,208,Lack Of Mediations To Conflict,Workplace Violence > Worker On Worker > Aggression > Lack Of Mediations To Conflict,மோதலுக்கான மத்தியஸ்தம் இல்லாமை
+SubCategoryViolenceMaster,209,Others,Workplace Violence > Worker On Worker > Aggression > Others,மற்றவை
+SubCategoryViolenceMaster,210,Helplessness To Cope Humiliation,Workplace Violence > Worker On Worker > Humiliation Bullying > Helplessness To Cope Humiliation,அவமானத்தை சமாளிக்க இயலாமை
+SubCategoryViolenceMaster,211,Hostility,Workplace Violence > Worker On Worker > Humiliation Bullying > Hostility,வெறுப்பு
+SubCategoryViolenceMaster,212,Witnessing Unfairness,Workplace Violence > Worker On Worker > Humiliation Bullying > Witnessing Unfairness,நியாயமற்றதைப் பார்த்தல்
+SubCategoryViolenceMaster,213,Devaluation Of The Self,Workplace Violence > Worker On Worker > Humiliation Bullying > Devaluation Of The Self,சுய மதிப்பை குறைத்தல்
+SubCategoryViolenceMaster,214,Others,Workplace Violence > Worker On Worker > Humiliation Bullying > Others,மற்றவை
+SubCategoryViolenceMaster,215,Inducting In Unhealthy Behaviours,Workplace Violence > Worker On Worker > Groupism > Inducting In Unhealthy Behaviours,ஆரோக்கியமற்ற நடத்தைகளில் சேர்த்தல்
+SubCategoryViolenceMaster,216,Involving In Delinquency,Workplace Violence > Worker On Worker > Groupism > Involving In Delinquency,குற்றச்செயல்களில் ஈடுபடுதல்
+SubCategoryViolenceMaster,217,Suggestion To Adopt Reckless Activities,Workplace Violence > Worker On Worker > Groupism > Suggestion To Adopt Reckless Activities,அவசரமான செயல்களை ஏற்க பரிந்துரை
+SubCategoryViolenceMaster,218,Creating A Toxic Environment,Workplace Violence > Worker On Worker > Groupism > Creating A Toxic Environment,விஷமயமான சூழலை உருவாக்குதல்
+SubCategoryViolenceMaster,219,Others,Workplace Violence > Worker On Worker > Groupism > Others,மற்றவை
+SubCategoryViolenceMaster,220,Jealousy,Workplace Violence > Worker On Worker > Competition In Perfermance > Jealousy,பொறாமை
+SubCategoryViolenceMaster,221,Back Stabbing,Workplace Violence > Worker On Worker > Competition In Perfermance > Back Stabbing,பின்புறத் துரோகம்
+SubCategoryViolenceMaster,222,Pulling Legs,Workplace Violence > Worker On Worker > Competition In Perfermance > Pulling Legs,கிண்டல்
+SubCategoryViolenceMaster,223,Lack Of Empathy,Workplace Violence > Worker On Worker > Competition In Perfermance > Lack Of Empathy,கருணை இல்லாமை
+SubCategoryViolenceMaster,224,Others,Workplace Violence > Worker On Worker > Competition In Perfermance > Others,மற்றவை
+SubCategoryViolenceMaster,225,Troubled Both At Home And Workplace,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence > Troubled Both At Home And Workplace,வீட்டிலும் பணியிடத்திலும் பிரச்சினை
+SubCategoryViolenceMaster,226,Lost Productivity,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence > Lost Productivity,உற்பத்தி இழப்பு
+SubCategoryViolenceMaster,227,Increased Stress,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence > Increased Stress,மனஅழுத்தம் அதிகரிப்பு
+SubCategoryViolenceMaster,228,Unbalanced Power Distribution,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence > Unbalanced Power Distribution,சமநிலையற்ற அதிகார விநியோகம்
+SubCategoryViolenceMaster,229,Others,Workplace Violence > Personal Relationalship > Victims Of Domestic Violence > Others,மற்றவை
+SubCategoryViolenceMaster,230,Suspicion,Workplace Violence > Personal Relationalship > Spouses Of Co Workers > Suspicion,சந்தேகம்
+SubCategoryViolenceMaster,231,Public Labelling,Workplace Violence > Personal Relationalship > Spouses Of Co Workers > Public Labelling,பொது பெயரிடல்
+SubCategoryViolenceMaster,232,Engaging In Conflict In Public,Workplace Violence > Personal Relationalship > Spouses Of Co Workers > Engaging In Conflict In Public,பொது இடங்களில் மோதலில் ஈடுபடுதல்
+SubCategoryViolenceMaster,233,Annoying & Negotiation,Workplace Violence > Personal Relationalship > Spouses Of Co Workers > Annoying & Negotiation,அசௌகரியம் மற்றும் பேச்சுவார்த்தை
+SubCategoryViolenceMaster,234,Others,Workplace Violence > Personal Relationalship > Spouses Of Co Workers > Others,மற்றவை
+SubCategoryViolenceMaster,235,Lost Trust In Work Place,Workplace Violence > Personal Relationalship > Family Members As Co Workers > Lost Trust In Work Place,வேலை இடத்தில் நம்பிக்கை இழப்பு
+SubCategoryViolenceMaster,236,Neglected Well Being,Workplace Violence > Personal Relationalship > Family Members As Co Workers > Neglected Well Being,நலனின் புறக்கணிப்பு
+SubCategoryViolenceMaster,237,Irrealistic Perception,Workplace Violence > Personal Relationalship > Family Members As Co Workers > Irrealistic Perception,அவியலான பார்வை
+SubCategoryViolenceMaster,238,Negative Attitudes,Workplace Violence > Personal Relationalship > Family Members As Co Workers > Negative Attitudes,எதிர்மறை அணுகுமுறைகள்
+SubCategoryViolenceMaster,239,Others,Workplace Violence > Personal Relationalship > Family Members As Co Workers > Others,மற்றவை
+SubCategoryViolenceMaster,240,Behaviour Changes,Workplace Violence > Personal Relationalship > Extramarital Affairs At Work Place > Behaviour Changes,நடத்தை மாற்றங்கள்
+SubCategoryViolenceMaster,241,Vulnerability To New Relationships,Workplace Violence > Personal Relationalship > Extramarital Affairs At Work Place > Vulnerability To New Relationships,புதிய உறவுகளுக்கு பாதிக்கப்படுதல்
+SubCategoryViolenceMaster,242,Volatile Situation Or Work Place,Workplace Violence > Personal Relationalship > Extramarital Affairs At Work Place > Volatile Situation Or Work Place,அவசரமான சூழல் அல்லது வேலை இடம்
+SubCategoryViolenceMaster,243,Others,Workplace Violence > Personal Relationalship > Extramarital Affairs At Work Place > Others,மற்றவை
+SubCategoryViolenceMaster,244,Experience Of A Harmful Acts,Sexual Violence > Sexual Harasment > Bad Touch During Travel > Experience Of A Harmful Acts,காயப்படுத்தும் செயல்களின் அனுபவம்
+SubCategoryViolenceMaster,245,Climate O Fear,Sexual Violence > Sexual Harasment > Bad Touch During Travel > Climate O Fear,பயத்தின் சூழல்
+SubCategoryViolenceMaster,246,Environment Of Discomforts,Sexual Violence > Sexual Harasment > Bad Touch During Travel > Environment Of Discomforts,அசௌகரிய சூழல்
+SubCategoryViolenceMaster,247,Restricted Freedom Of Movement,Sexual Violence > Sexual Harasment > Bad Touch During Travel > Restricted Freedom Of Movement,இயக்க சுதந்திரத்தின் கட்டுப்பாடு
+SubCategoryViolenceMaster,248,Others,Sexual Violence > Sexual Harasment > Bad Touch During Travel > Others,மற்றவை
+SubCategoryViolenceMaster,249,Catcalling,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks > Catcalling,குரல் அழைப்பு
+SubCategoryViolenceMaster,250,Exhibition,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks > Exhibition,காட்சிப்படுத்தல்
+SubCategoryViolenceMaster,251,Received A Suggestive Comments About The Appearance,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks > Received A Suggestive Comments About The Appearance,தோற்றம் குறித்து சுட்டிக்காட்டும் கருத்துகளை பெறுதல்
+SubCategoryViolenceMaster,252,Offensive Jokes Of Sexual Nature,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks > Offensive Jokes Of Sexual Nature,பாலியல் சார்ந்த அவமதிக்கும் நகைச்சுவைகள்
+SubCategoryViolenceMaster,253,Others,Sexual Violence > Sexual Harasment > Unwelcoming Sexual Remarks > Others,மற்றவை
+SubCategoryViolenceMaster,254,Stalking To Connect Through Phone Or Social Media,"Sexual Violence > Sexual Harasment > Sexual Assault, Kidnap Threat > Stalking To Connect Through Phone Or Social Media",தொலைபேசி அல்லது சமூக ஊடகங்கள் மூலம் தொடர்பு கொள்ள பின்தொடர்தல்
+SubCategoryViolenceMaster,255,One Side Love Chasing,"Sexual Violence > Sexual Harasment > Sexual Assault, Kidnap Threat > One Side Love Chasing",ஒரு பக்க காதல் பின்தொடர்தல்
+SubCategoryViolenceMaster,256,Refuse Gestures And Comments,"Sexual Violence > Sexual Harasment > Sexual Assault, Kidnap Threat > Refuse Gestures And Comments",மறுப்பு சைகைகள் மற்றும் கருத்துகள்
+SubCategoryViolenceMaster,257,Others,"Sexual Violence > Sexual Harasment > Sexual Assault, Kidnap Threat > Others",
+SubCategoryViolenceMaster,258,Staring Without A Specific Purpose,"Sexual Violence > Sexual Harasment > Gestures, Postures And Leering > Staring Without A Specific Purpose",
+SubCategoryViolenceMaster,259,Unwanted Attension Of Sexual Nature,"Sexual Violence > Sexual Harasment > Gestures, Postures And Leering > Unwanted Attension Of Sexual Nature",
+SubCategoryViolenceMaster,260,Hashing,"Sexual Violence > Sexual Harasment > Gestures, Postures And Leering > Hashing",
+SubCategoryViolenceMaster,261,Inapproriate Digital Messages,"Sexual Violence > Sexual Harasment > Gestures, Postures And Leering > Inapproriate Digital Messages",
+SubCategoryViolenceMaster,262,Others,"Sexual Violence > Sexual Harasment > Gestures, Postures And Leering > Others",
+SubCategoryViolenceMaster,263,Uncomfortable Remarks About The Body Shape,Sexual Violence > Sexual Harasment > Body Shaming > Uncomfortable Remarks About The Body Shape,
+SubCategoryViolenceMaster,264,Breach Of Boundaries,Sexual Violence > Sexual Harasment > Body Shaming > Breach Of Boundaries,
+SubCategoryViolenceMaster,265,Alarming Emotional Attacks,Sexual Violence > Sexual Harasment > Body Shaming > Alarming Emotional Attacks,
+SubCategoryViolenceMaster,266,Distressful Questioning,Sexual Violence > Sexual Harasment > Body Shaming > Distressful Questioning,
+SubCategoryViolenceMaster,267,Others,Sexual Violence > Sexual Harasment > Body Shaming > Others,
+SubCategoryViolenceMaster,268,Exerting Influence On Decision Making,Sexual Violence > Assault & Rape > Demonstration Of Power > Exerting Influence On Decision Making,
+SubCategoryViolenceMaster,269,With Holding Freedom Of Speech,Sexual Violence > Assault & Rape > Demonstration Of Power > With Holding Freedom Of Speech,
+SubCategoryViolenceMaster,270,Unreasonable Restriction In Public Places,Sexual Violence > Assault & Rape > Demonstration Of Power > Unreasonable Restriction In Public Places,
+SubCategoryViolenceMaster,271,Strict Adherence To Rules Without Regularities,Sexual Violence > Assault & Rape > Demonstration Of Power > Strict Adherence To Rules Without Regularities,
+SubCategoryViolenceMaster,272,Others,Sexual Violence > Assault & Rape > Demonstration Of Power > Others,
+SubCategoryViolenceMaster,273,Dis Obedience To Obliged Empathy,Sexual Violence > Assault & Rape > Irrational Sexual Demands > Dis Obedience To Obliged Empathy,
+SubCategoryViolenceMaster,274,Power Struggles At Public Spaces,Sexual Violence > Assault & Rape > Irrational Sexual Demands > Power Struggles At Public Spaces,
+SubCategoryViolenceMaster,275,Denial Of Rights,Sexual Violence > Assault & Rape > Irrational Sexual Demands > Denial Of Rights,
+SubCategoryViolenceMaster,276,Lack Of Respected And Dignity,Sexual Violence > Assault & Rape > Irrational Sexual Demands > Lack Of Respected And Dignity,
+SubCategoryViolenceMaster,277,Others,Sexual Violence > Assault & Rape > Irrational Sexual Demands > Others,
+SubCategoryViolenceMaster,278,Physical Distancing From Others,Sexual Violence > Assault & Rape > Isolation Tactics > Physical Distancing From Others,
+SubCategoryViolenceMaster,279,Lieng & Manipulating About A Social Dysfunction,Sexual Violence > Assault & Rape > Isolation Tactics > Lieng & Manipulating About A Social Dysfunction,
+SubCategoryViolenceMaster,280,Limiting Interaction With Public,Sexual Violence > Assault & Rape > Isolation Tactics > Limiting Interaction With Public,
+SubCategoryViolenceMaster,281,Restricting & Avoiding Gathering,Sexual Violence > Assault & Rape > Isolation Tactics > Restricting & Avoiding Gathering,
+SubCategoryViolenceMaster,282,Others,Sexual Violence > Assault & Rape > Isolation Tactics > Others,
+SubCategoryViolenceMaster,283,Public Toxication,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction > Public Toxication,
+SubCategoryViolenceMaster,284,Drug Possession,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction > Drug Possession,
+SubCategoryViolenceMaster,285,Public Consumption Of Illegal Substance,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction > Public Consumption Of Illegal Substance,
+SubCategoryViolenceMaster,286,Creating Public Nuisance,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction > Creating Public Nuisance,
+SubCategoryViolenceMaster,287,Others,Sexual Violence > Assault & Rape > Usage Of Drugs And Induction > Others,
+SubCategoryViolenceMaster,288,Inducing Shyness,Sexual Violence > Relationship Affairs > Anonymous Communication > Inducing Shyness,
+SubCategoryViolenceMaster,289,Lack Of Accountability In Communication,Sexual Violence > Relationship Affairs > Anonymous Communication > Lack Of Accountability In Communication,
+SubCategoryViolenceMaster,290,Sharing Sensitive Information,Sexual Violence > Relationship Affairs > Anonymous Communication > Sharing Sensitive Information,
+SubCategoryViolenceMaster,291,Erosion Of Trust Statements,Sexual Violence > Relationship Affairs > Anonymous Communication > Erosion Of Trust Statements,
+SubCategoryViolenceMaster,292,Others,Sexual Violence > Relationship Affairs > Anonymous Communication > Others,
+SubCategoryViolenceMaster,293,Creating A Confused State Of Mind,Sexual Violence > Relationship Affairs > Emotional Attacks > Creating A Confused State Of Mind,
+SubCategoryViolenceMaster,294,Inducing Loneliness By With Drawal,Sexual Violence > Relationship Affairs > Emotional Attacks > Inducing Loneliness By With Drawal,
+SubCategoryViolenceMaster,295,Fostering Emotional Dependence,Sexual Violence > Relationship Affairs > Emotional Attacks > Fostering Emotional Dependence,
+SubCategoryViolenceMaster,296,Creating A Sense Of Guilt,Sexual Violence > Relationship Affairs > Emotional Attacks > Creating A Sense Of Guilt,
+SubCategoryViolenceMaster,297,Others,Sexual Violence > Relationship Affairs > Emotional Attacks > Others,
+SubCategoryViolenceMaster,298,Voluntarity Hurting The Partner,Sexual Violence > Relationship Affairs > Provocation By Appearances > Voluntarity Hurting The Partner,
+SubCategoryViolenceMaster,299,Blackmailing,Sexual Violence > Relationship Affairs > Provocation By Appearances > Blackmailing,
+SubCategoryViolenceMaster,300,Creating A Insecure Environment,Sexual Violence > Relationship Affairs > Provocation By Appearances > Creating A Insecure Environment,
+SubCategoryViolenceMaster,301,Provoking Jealousy,Sexual Violence > Relationship Affairs > Provocation By Appearances > Provoking Jealousy,
+SubCategoryViolenceMaster,302,Others,Sexual Violence > Relationship Affairs > Provocation By Appearances > Others,
+SubCategoryViolenceMaster,303,Inducing Negative Feeling Of Separation,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Inducing Negative Feeling Of Separation,
+SubCategoryViolenceMaster,304,Sucidal Ideation,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Sucidal Ideation,
+SubCategoryViolenceMaster,305,Frequently Embarking Relationship Conflicts,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Frequently Embarking Relationship Conflicts,
+SubCategoryViolenceMaster,306,Manifesting A Feeling Of Emptiness,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Manifesting A Feeling Of Emptiness,
+SubCategoryViolenceMaster,307,Shame,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Shame,
+SubCategoryViolenceMaster,308,Debihitating Pain,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Debihitating Pain,
+SubCategoryViolenceMaster,309,Others,Sexual Violence > Relationship Affairs > Inducing Psychological Pain > Others,
+SubCategoryViolenceMaster,310,Excessive Mobile Phone Engagement,Sexual Violence > Relationship Affairs > Distracting > Excessive Mobile Phone Engagement,
+SubCategoryViolenceMaster,311,Pre Occupied Thoughts,Sexual Violence > Relationship Affairs > Distracting > Pre Occupied Thoughts,
+SubCategoryViolenceMaster,312,Exagerating Mis Understanding,Sexual Violence > Relationship Affairs > Distracting > Exagerating Mis Understanding,
+SubCategoryViolenceMaster,313,Work Alcoholism Of One Of The Partner,Sexual Violence > Relationship Affairs > Distracting > Work Alcoholism Of One Of The Partner,
+SubCategoryViolenceMaster,314,Others,Sexual Violence > Relationship Affairs > Distracting > Others,
+SubCategoryViolenceMaster,315,Whistling,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks > Whistling,
+SubCategoryViolenceMaster,316,Using Vulgar Language,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks > Using Vulgar Language,
+SubCategoryViolenceMaster,317,Intimidating Looks,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks > Intimidating Looks,
+SubCategoryViolenceMaster,318,Cyber Stalking,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks > Cyber Stalking,
+SubCategoryViolenceMaster,319,Others,Sexual Violence > Eve Teasing > Sexually Suggestive Remarks > Others,
+SubCategoryViolenceMaster,320,Induction To Feel Ashamed,Sexual Violence > Eve Teasing > Brusting To Gain Attension > Induction To Feel Ashamed,
+SubCategoryViolenceMaster,321,"Playful, Hurtful Teasing","Sexual Violence > Eve Teasing > Catcalls, Grouping & Expanding Vulgarity > Playful, Hurtful Teasing",
+SubCategoryViolenceMaster,322,Others,"Sexual Violence > Eve Teasing > Catcalls, Grouping & Expanding Vulgarity > Others",
+SubCategoryViolenceMaster,323,Demonstration Of Suicide Attends,"Sexual Violence > Shame, Mapping, Acid Attacks > Inducing Fear > Demonstration Of Suicide Attends",
+SubCategoryViolenceMaster,324,Exaggerated Feeling Of Love & Care,"Sexual Violence > Shame, Mapping, Acid Attacks > Taking Control Over Bodies > Exaggerated Feeling Of Love & Care",
+SubCategoryViolenceMaster,325,Retribution For Women'S Rejection,"Sexual Violence > Shame, Mapping, Acid Attacks > Fear Of Public Mark Of Shame > Retribution For Women'S Rejection",
+SubCategoryViolenceMaster,326,Others,"Sexual Violence > Shame, Mapping, Acid Attacks > Fear Of Public Mark Of Shame > Others",
+SubCategoryViolenceMaster,327,Standing Too Close,Harassment / Other Violence > Abuses & Harassment > Physical > Standing Too Close,
+SubCategoryViolenceMaster,328,Intimidating,Harassment / Other Violence > Abuses & Harassment > Physical > Intimidating,
+SubCategoryViolenceMaster,329,Aggressive Postures,Harassment / Other Violence > Abuses & Harassment > Physical > Aggressive Postures,
+SubCategoryViolenceMaster,330,Touching Body,Harassment / Other Violence > Abuses & Harassment > Physical > Touching Body,
+SubCategoryViolenceMaster,331,Unwanted Kissing,Harassment / Other Violence > Abuses & Harassment > Physical > Unwanted Kissing,
+SubCategoryViolenceMaster,332,Forcing The Child To Touch Them,Harassment / Other Violence > Abuses & Harassment > Physical > Forcing The Child To Touch Them,குழந்தையை அவரைத் தொட வற்புறுத்துதல்
+SubCategoryViolenceMaster,333,Sending Nude Pictures,Harassment / Other Violence > Abuses & Harassment > Physical > Sending Nude Pictures,நிறைமையற்ற படங்களை அனுப்புதல்
+SubCategoryViolenceMaster,334,Forcing To Watch Porn,Harassment / Other Violence > Abuses & Harassment > Physical > Forcing To Watch Porn,போர்ன் காண வற்புறுத்துதல்
+SubCategoryViolenceMaster,335,Flashing / Genital Exposure,Harassment / Other Violence > Abuses & Harassment > Physical > Flashing / Genital Exposure,இனப்பெருக்க உறுப்புகள் வெளிப்படுத்துதல்
+SubCategoryViolenceMaster,336,Rape Attempt,Harassment / Other Violence > Abuses & Harassment > Physical > Rape Attempt,வலியுறுத்தி பாலியல் தாக்குதல் முயற்சி
+SubCategoryViolenceMaster,337,With Holding Information,Harassment / Other Violence > Abuses & Harassment > Physical > With Holding Information,தகவல் மறைத்தல்
+SubCategoryViolenceMaster,338,Beating,Harassment / Other Violence > Abuses & Harassment > Physical > Beating,அடி கொடுத்தல்
+SubCategoryViolenceMaster,339,Pushing,Harassment / Other Violence > Abuses & Harassment > Physical > Pushing,தள்ளுதல்
+SubCategoryViolenceMaster,340,Burning,Harassment / Other Violence > Abuses & Harassment > Physical > Burning,எரித்தல்
+SubCategoryViolenceMaster,341,Un Coelcoming Postures,Harassment / Other Violence > Abuses & Harassment > Physical > Un Coelcoming Postures,அசௌகரியமான நிலை
+SubCategoryViolenceMaster,342,Taking Pictures,Harassment / Other Violence > Abuses & Harassment > Physical > Taking Pictures,படங்களை எடுக்குதல்
+SubCategoryViolenceMaster,343,Others,Harassment / Other Violence > Abuses & Harassment > Physical > Others,மற்றவை
+SubCategoryViolenceMaster,344,Bullying & Black Mail,Harassment / Other Violence > Abuses & Harassment > Emotional > Bullying & Black Mail,துன்புறுத்தல் மற்றும் பறிமுதல்
+SubCategoryViolenceMaster,345,Silent Treatment,Harassment / Other Violence > Abuses & Harassment > Emotional > Silent Treatment,மௌனத் தண்டனை
+SubCategoryViolenceMaster,346,Isolating From Peers,Harassment / Other Violence > Abuses & Harassment > Emotional > Isolating From Peers,சமவயஸ்சியர்களிலிருந்து தனிமைப்படுத்தல்
+SubCategoryViolenceMaster,347,Ridiculing,Harassment / Other Violence > Abuses & Harassment > Emotional > Ridiculing,வெட்கப்படுத்தல்
+SubCategoryViolenceMaster,348,Mocking,Harassment / Other Violence > Abuses & Harassment > Emotional > Mocking,போலி செய்தல்
+SubCategoryViolenceMaster,349,Ill Treatment,Harassment / Other Violence > Abuses & Harassment > Emotional > Ill Treatment,கெட்ட நடத்தல்
+SubCategoryViolenceMaster,350,Others,Harassment / Other Violence > Abuses & Harassment > Emotional > Others,மற்றவை
+SubCategoryViolenceMaster,351,Penetration,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Penetration,உள்ளே நுழைவு
+SubCategoryViolenceMaster,352,Rape,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Rape,வலியுறுத்தி பாலியல் வன்முறை
+SubCategoryViolenceMaster,353,Oral Sex Induction,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Oral Sex Induction,வாய் பாலியல் வற்புறுத்தல்
+SubCategoryViolenceMaster,354,Non Penetrating Activity,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Non Penetrating Activity,உள்ளே நுழையாத பாலியல் செயல்கள்
+SubCategoryViolenceMaster,355,Forcing / Inviting For Sexual Gratification,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Forcing / Inviting For Sexual Gratification,பாலியல் திருப்திக்காக வற்புறுத்தல்
+SubCategoryViolenceMaster,356,Flasing Or Grooming For Fecture Abuse,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Flasing Or Grooming For Fecture Abuse,எதிர்கால துஷ்பிரயோகத்திற்காக ஃப்ளாஸிங் அல்லது கிரூமிங்
+SubCategoryViolenceMaster,357,Others,Harassment / Other Violence > Abuses & Harassment > Sexual Abuse > Others,
+SubCategoryViolenceMaster,358,Failure In Addressing Child'S Basic Needs,Harassment / Other Violence > Abuses & Harassment > Neglect > Failure In Addressing Child'S Basic Needs,
+SubCategoryViolenceMaster,359,Impairment Of Child Health,Harassment / Other Violence > Abuses & Harassment > Neglect > Impairment Of Child Health,
+SubCategoryViolenceMaster,360,Unattending To Child'S Psychological Needs,Harassment / Other Violence > Abuses & Harassment > Neglect > Unattending To Child'S Psychological Needs,
+SubCategoryViolenceMaster,361,In Attension To Emotional Needs,Harassment / Other Violence > Abuses & Harassment > Neglect > In Attension To Emotional Needs,
+SubCategoryViolenceMaster,362,Abandonment,Harassment / Other Violence > Abuses & Harassment > Neglect > Abandonment,
+SubCategoryViolenceMaster,363,Allowing The Child To Exterience Harm,Harassment / Other Violence > Abuses & Harassment > Neglect > Allowing The Child To Exterience Harm,
+SubCategoryViolenceMaster,364,Others,Harassment / Other Violence > Abuses & Harassment > Neglect > Others,

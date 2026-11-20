@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Vercel
+.vercel/
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+
+# Local files
+*.log
+sample.wav
+*.mp3
+*.mp4
+.vercel
