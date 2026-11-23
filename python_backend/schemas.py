@@ -16,6 +16,12 @@ class Event(BaseModel):
     ln: Optional[str] = None
     UserName: Optional[str] = None
     Password: Optional[str] = None
+    DeviceId: Optional[str] = None
+    Latitude: Optional[float] = None
+    Longitude: Optional[float] = None
+    Accuracy: Optional[float] = None
+    Provider: Optional[str] = None
+    CapturedAt: Optional[str] = None
     ColourRating: Optional[int] = None
     
     # We will map these dictionaries/models based on how they are sent

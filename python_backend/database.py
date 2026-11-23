@@ -5,9 +5,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# We use the DB_CONNECTION_STRING from .env
-# Now configured for PostgreSQL in Docker
-SQLALCHEMY_DATABASE_URL = os.getenv("DB_CONNECTION_STRING")
+# We use the DB_CONNECTION_STRING from .env, falling back to local PostgreSQL if not specified
+SQLALCHEMY_DATABASE_URL = os.getenv(
+    "DB_CONNECTION_STRING",
+    "postgresql://postgres:postgres@localhost:5432/nayeam_database"
+)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

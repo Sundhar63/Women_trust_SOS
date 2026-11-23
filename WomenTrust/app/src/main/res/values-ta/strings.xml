@@ -163,6 +163,8 @@
 <!--    Dashboard-->
     <string name="logout">வெளியேறு</string>
     <string name="logout_alert">நீங்கள் உறுதியாக வெளியேற விரும்புகிறீர்களா?</string>
+    <string name="session_expired">உங்கள் அமர்வு காலாவதியானது. மீண்டும் உள்நுழையவும்.</string>
+    <string name="offline_mode_message">நீங்கள் இணையமில்லாமல் உள்ளீர்கள். மீண்டும் இணைக்கும் வரை சில அம்சங்கள் கிடைக்காது.</string>
     <string name="no_text">இல்லை</string>
     <string name="yes_text">ஆம்</string>
 
@@ -255,4 +257,18 @@
     <string name="abuse_level_high">அதிகம்</string>
     <string name="abuse_level_medium">நடுத்தரம்</string>
     <string name="abuse_level_low">குறைவு</string>
+
+    <!-- Location Service Strings -->
+    <string name="location_required_title">இருப்பிட அனுமதி தேவை</string>
+    <string name="location_required_message">அவசர கால பாதுகாப்பு உதவிகளை வழங்கவும் உங்கள் இருப்பிடத்தை கண்டறியவும் இருப்பிட அனுமதி தேவைப்படுகிறது. தொடர இருப்பிட அனுமதியை வழங்கவும்.</string>
+    <string name="location_allow">அனுமதிக்கவும்</string>
+    <string name="location_exit">வெளியேறு</string>
+    <string name="location_try_again">மீண்டும் முயற்சி செய்</string>
+    <string name="location_open_settings">அமைப்புகளைத் திறக்க</string>
+    <string name="location_permission_denied">உங்கள் பாதுகாப்பிற்காக இருப்பிட அனுமதி அவசியம். ஆப் அமைப்புகளில் சென்று இருப்பிட அனுமதியை வழங்கவும்.</string>
+    <string name="location_disabled_title">இருப்பிட சேவை முடக்கப்பட்டுள்ளது</string>
+    <string name="location_disabled_message">உங்கள் சாதனத்தில் GPS/இருப்பிட சேவை அணைக்கப்பட்டுள்ளது. செயலியைப் பயன்படுத்த கணினி அமைப்புகளில் அதை இயக்கவும்.</string>
+    <string name="location_open_settings_failed">அமைப்புகளைத் தானாகத் திறக்க முடியவில்லை. தயவுசெய்து அமைப்புகளில் கைமுறையாக இயக்கவும்.</string>
+    <string name="location_unavailable">தற்போதைய இருப்பிடத்தைப் பெற முடியவில்லை.</string>
+
 </resources>

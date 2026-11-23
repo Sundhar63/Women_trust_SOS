@@ -1,0 +1,21 @@
+-- Location captured when a user starts using the app.
+-- Base.metadata.create_all() creates this table on fresh databases; run this
+-- manually against an existing database.
+
+CREATE TABLE IF NOT EXISTS "USER_LOCATION" (
+    "ID"          SERIAL PRIMARY KEY,
+    "LOGIN_ID"    INTEGER NOT NULL REFERENCES "LOGIN_MASTER"("ID"),
+    "LATITUDE"    DOUBLE PRECISION NOT NULL,
+    "LONGITUDE"   DOUBLE PRECISION NOT NULL,
+    "ACCURACY"    DOUBLE PRECISION,
+    "PROVIDER"    VARCHAR(32),
+    "DEVICE_ID"   VARCHAR(128),
+    "CAPTURED_AT" TIMESTAMP,
+    "CREATED_AT"  TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS "ix_USER_LOCATION_LOGIN_ID"
+    ON "USER_LOCATION" ("LOGIN_ID");
+
+CREATE INDEX IF NOT EXISTS "ix_USER_LOCATION_CREATED_AT"
+    ON "USER_LOCATION" ("CREATED_AT");

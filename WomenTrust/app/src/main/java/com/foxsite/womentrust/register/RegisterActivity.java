@@ -196,19 +196,14 @@ public class RegisterActivity extends AppCompatActivity {
                 userRegisterModelArrayList
         );
 
-        Gson gson = new Gson();
-        String json = gson.toJson(userRegisterModelRequest);
-        Log.d("String_UserRegdetails: ", json);
-
+        // Never log the registration payload: it contains the password and Aadhaar number.
         Call<JsonArray> call = apiService.userRegDetails(userRegisterModelRequest);
         call.enqueue(new Callback<JsonArray>() {
             @Override
             public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
                 setRegisterLoading(false);
-                Log.d("UserRegData_Response", response.toString());
                 if (response.isSuccessful() && response.body() != null) {
                     JsonArray data = response.body();
-                    Log.d("UserRegDataData_Response", data.toString());
 
                     try {
                         JSONArray jsonArray = new JSONArray(data.toString());

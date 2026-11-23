@@ -9,7 +9,9 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,17 +27,28 @@ import androidx.core.os.LocaleListCompat;
 
 import com.foxsite.womentrust.abuse.AbuseActivity;
 import com.foxsite.womentrust.api_services.ApiService;
+import com.foxsite.womentrust.api_services.AuthLogoutRequest;
 import com.foxsite.womentrust.api_services.RetrofitClient;
+import com.foxsite.womentrust.api_services.SaveLocationRequest;
 import com.foxsite.womentrust.app_utills.AppUtils;
 import com.foxsite.womentrust.app_utills.LanguageHelper;
 import com.foxsite.womentrust.app_utills.LoadingDialog;
+import com.foxsite.womentrust.app_utills.LocationHelper;
+import com.foxsite.womentrust.app_utills.SessionManager;
 import com.foxsite.womentrust.databinding.ActivityMainBinding;
 import com.foxsite.womentrust.login.LoginActivity;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import android.location.Location;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -60,9 +73,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String roleId = "";
 
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
+    private static final int REQUEST_LOCATION_PERMISSION = 201;
+    private static final long LOCATION_UPLOAD_INTERVAL_MS = 5 * 60 * 1000L;
+
     private MediaRecorder mediaRecorder;
     private String audioFilePath;
     private boolean isRecording = false;
+
+    private LocationHelper locationHelper;
+    private boolean locationDialogShowing = false;
+    private long lastLocationUploadAt = 0L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         loadingDialog = new LoadingDialog(MainActivity.this);
         appUtils = new AppUtils(this);
+        locationHelper = new LocationHelper(this);
 
         userID = sharedPreferences.getString(getString(R.string.userId), "");
         username = sharedPreferences.getString(getString(R.string.username), "");
@@ -129,6 +150,184 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
             return false;
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        enforceLocation();
+    }
+
+    // ------------------------------------------------------------ location gate
+
+    /**
+     * The app cannot be used without location: the permission dialog and the
+     * "location is off" dialog are both non-cancelable, and the only negative
+     * action closes the app.
+     */
+    private void enforceLocation() {
+        if (locationHelper == null || isFinishing()) {
+            return;
+        }
+        if (!locationHelper.hasPermission()) {
+            showLocationPermissionDialog();
+            return;
+        }
+        if (!locationHelper.isLocationEnabled()) {
+            showLocationDisabledDialog();
+            return;
+        }
+        if (System.currentTimeMillis() - lastLocationUploadAt < LOCATION_UPLOAD_INTERVAL_MS) {
+            return;
+        }
+        captureAndUploadLocation();
+    }
+
+    private void showLocationPermissionDialog() {
+        if (locationDialogShowing || isFinishing()) {
+            return;
+        }
+        locationDialogShowing = true;
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.location_required_title))
+                .setMessage(getString(R.string.location_required_message))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.location_allow), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    ActivityCompat.requestPermissions(
+                            MainActivity.this,
+                            new String[]{
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION
+                            },
+                            REQUEST_LOCATION_PERMISSION);
+                })
+                .setNegativeButton(getString(R.string.location_exit), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    finishAffinity();
+                })
+                .show();
+    }
+
+    private void showLocationDeniedDialog() {
+        if (locationDialogShowing || isFinishing()) {
+            return;
+        }
+        locationDialogShowing = true;
+
+        boolean canAskAgain = ActivityCompat.shouldShowRequestPermissionRationale(
+                this, Manifest.permission.ACCESS_FINE_LOCATION);
+        int positiveLabel = canAskAgain ? R.string.location_try_again : R.string.location_open_settings;
+
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.location_required_title))
+                .setMessage(getString(R.string.location_permission_denied))
+                .setCancelable(false)
+                .setPositiveButton(getString(positiveLabel), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    if (canAskAgain) {
+                        ActivityCompat.requestPermissions(
+                                MainActivity.this,
+                                new String[]{
+                                        Manifest.permission.ACCESS_FINE_LOCATION,
+                                        Manifest.permission.ACCESS_COARSE_LOCATION
+                                },
+                                REQUEST_LOCATION_PERMISSION);
+                    } else {
+                        openAppSettings();
+                    }
+                })
+                .setNegativeButton(getString(R.string.location_exit), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    finishAffinity();
+                })
+                .show();
+    }
+
+    private void showLocationDisabledDialog() {
+        if (locationDialogShowing || isFinishing()) {
+            return;
+        }
+        locationDialogShowing = true;
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.location_disabled_title))
+                .setMessage(getString(R.string.location_disabled_message))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.location_open_settings), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    try {
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    } catch (Exception e) {
+                        openAppSettings();
+                    }
+                })
+                .setNegativeButton(getString(R.string.location_exit), (dialog, which) -> {
+                    locationDialogShowing = false;
+                    finishAffinity();
+                })
+                .show();
+    }
+
+    private void openAppSettings() {
+        try {
+            Intent intent = new Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        } catch (Exception e) {
+            appUtils.showToast(getString(R.string.location_open_settings_failed));
+        }
+    }
+
+    private void captureAndUploadLocation() {
+        locationHelper.requestSingleLocation(new LocationHelper.Callback() {
+            @Override
+            public void onLocation(Location location) {
+                uploadLocation(location);
+            }
+
+            @Override
+            public void onFailure(String reason) {
+                // A fix can fail indoors even when everything is enabled; do not block the app.
+                Log.w("MainActivity", "Location fix unavailable: " + reason);
+                appUtils.showToast(getString(R.string.location_unavailable));
+            }
+        });
+    }
+
+    private void uploadLocation(Location location) {
+        if (location == null) {
+            return;
+        }
+        lastLocationUploadAt = System.currentTimeMillis();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        long capturedAtMillis = location.getTime() > 0 ? location.getTime() : System.currentTimeMillis();
+        String capturedAt = formatter.format(new Date(capturedAtMillis));
+
+        Float accuracy = location.hasAccuracy() ? location.getAccuracy() : null;
+        SaveLocationRequest request = new SaveLocationRequest(
+                location.getLatitude(),
+                location.getLongitude(),
+                accuracy,
+                location.getProvider(),
+                capturedAt,
+                SessionManager.get(this).getDeviceId());
+
+        RetrofitClient.getApiService("").saveUserLocation(request).enqueue(new Callback<JsonArray>() {
+            @Override
+            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+                if (!response.isSuccessful()) {
+                    Log.w("MainActivity", "Location upload failed with HTTP " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonArray> call, Throwable t) {
+                Log.w("MainActivity", "Location upload failed", t);
+            }
         });
     }
 
@@ -231,13 +430,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.clear();
-                        editor.commit();
-
-                        Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
-                        finish();
-                        startActivity(mainIntent);
+                        performLogout();
                     }
                 });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.no_text),
@@ -251,6 +444,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialog.show();
     }
 
+    /**
+     * Revoke the session on the server first, then wipe local state. The local
+     * wipe happens immediately so a slow network cannot leave the user signed in.
+     */
+    private void performLogout() {
+        SessionManager sessionManager = SessionManager.get(this);
+        String refreshToken = sessionManager.getRefreshToken();
+
+        if (refreshToken != null && !refreshToken.isEmpty()) {
+            ApiService apiService = RetrofitClient.getApiService("");
+            apiService.logoutSession(new AuthLogoutRequest(refreshToken)).enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    // Ignored: local state is already cleared.
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Log.w("MainActivity", "Server logout failed; session will expire naturally", t);
+                }
+            });
+        }
+
+        sessionManager.clear();
+        sharedPreferences.edit().clear().apply();
+
+        Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        finish();
+        startActivity(mainIntent);
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -259,6 +484,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startAudioRecording();
             } else {
                 appUtils.showToast(getString(R.string.voice_permission_required));
+            }
+        } else if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            locationDialogShowing = false;
+            if (locationHelper != null && locationHelper.hasPermission()) {
+                if (!locationHelper.isLocationEnabled()) {
+                    showLocationDisabledDialog();
+                } else {
+                    captureAndUploadLocation();
+                }
+            } else {
+                showLocationDeniedDialog();
             }
         }
     }

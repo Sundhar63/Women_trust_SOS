@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -197,6 +198,17 @@ public class ViewContactInfoActivity extends AppCompatActivity {
                 imageAdapter = new ImageAdapter(this, imageList);
                 recyclerImages.setAdapter(imageAdapter);
 
+                String contactNo = abuseObject.optString("CONTACT_NO", "");
+                String contactMail = abuseObject.optString("CONTACT_MAIL_ID", "");
+                String contactWeb = abuseObject.optString("CONTACT_WEBSITE", "");
+
+                if (!contactNo.isEmpty() || !contactMail.isEmpty() || !contactWeb.isEmpty()) {
+                    viewContactInfoBinding.contactNumberText.setText(contactNo);
+                    viewContactInfoBinding.contactEmailText.setText(contactMail);
+                    viewContactInfoBinding.contactWebAddres.setText(contactWeb);
+                    viewContactInfoBinding.contactDetailsContainer.setVisibility(View.VISIBLE);
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -280,6 +292,10 @@ public class ViewContactInfoActivity extends AppCompatActivity {
                                 viewContactInfoBinding.contactNumberText.setText(_contact_no);
                                 viewContactInfoBinding.contactEmailText.setText(_contact_mail_id);
                                 viewContactInfoBinding.contactWebAddres.setText(_contact_website);
+
+                                if (!_contact_no.isEmpty() || !_contact_mail_id.isEmpty() || !_contact_website.isEmpty()) {
+                                    viewContactInfoBinding.contactDetailsContainer.setVisibility(View.VISIBLE);
+                                }
 
                                 viewContactInfoBinding.abuseLevelTextview.setText(_abouseLevel);
                                 viewContactInfoBinding.abuseLevelTextview.setTextColor(levelColor);

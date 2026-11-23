@@ -1,0 +1,504 @@
+{
+  "domestic violence": {
+    "intimate partner violence": {
+      "physical abuse": [
+        "hitting",
+        "pushing",
+        "kicking",
+        "hair pulling",
+        "slapping",
+        "assault & ashame",
+        "rough handling",
+        "scalding & burning",
+        "physical punishments",
+        "inappropriate uncomfortable feeling",
+        "involuntary isolation of confinement",
+        "misuse of medication",
+        "forcing an action",
+        "with hold food",
+        "restricting movement",
+        "unauthorised command to obey",
+        "others"
+      ],
+      "emotional abuse": [
+        "humiliating",
+        "constantly critising",
+        "threatening",
+        "shouting & scolding",
+        "blaming",
+        "scape goating",
+        "forcing to do degrading acts",
+        "neglecting emotionally",
+        "beholding needs",
+        "exposing to upsetting events",
+        "failing to address needs",
+        "forced isolation",
+        "manipulating",
+        "failing to express positive feeling",
+        "others"
+      ],
+      "finacial abuse": [
+        "sabotaging job",
+        "preventing to opt a career",
+        "purposefully spoiling work",
+        "with holding necessities",
+        "controlling with mone",
+        "power game with money",
+        "constantly pleading for money",
+        "voluntary usage without inform consent",
+        "controlling the finances",
+        "blaming finances",
+        "controlling spending activities",
+        "with drawing from financial commitment",
+        "frequently pawn brokering",
+        "others"
+      ],
+      "sexual abuse": [
+        "sexual assault",
+        "rape",
+        "forced sex",
+        "threatening for sexual activity",
+        "manipulation for sexual activity",
+        "uses alcohol or drugs to engage in sexual activity",
+        "demands sex when i am injured",
+        "sick or tired",
+        "pressures to record pornography",
+        "forces to try unusual sex postures",
+        "insults or embarrasses me on a sexual way",
+        "controls access to or refuse to use contraception",
+        "takes sexual images for pleasure & fun",
+        "shares sexual images of their partner \"revenge\"",
+        "using jealousy as an excuse to control the dress",
+        "others"
+      ],
+      "social abuse": [
+        "scaring for unknown reasons",
+        "controlling day to day activity",
+        "stops me from seeing friends",
+        "family & others",
+        "isolation",
+        "withdraws information",
+        "preventing from participation in social activities",
+        "publicizing the participation",
+        "needing to know everyone you have seen or see planning",
+        "checking or interfering with phone",
+        "mail",
+        "social media",
+        "using social media to spread lies and damages",
+        "tell lies about you to friends & family",
+        "deliberately make me delayed to events",
+        "appointments or meetings",
+        "embarrasses me in front of every one",
+        "restrict access to car & other form of transport",
+        "others"
+      ],
+      "varbal abuse": [
+        "yelling",
+        "criticising",
+        "swearing and labelling by hurtful names",
+        "demanding",
+        "ordering",
+        "gas lighting",
+        "manipulating",
+        "patronising",
+        "blaming",
+        "ridiculing",
+        "shaming",
+        "swearing / belittle",
+        "insulting",
+        "silent treatment",
+        "others"
+      ],
+      "cultural abuse": [
+        "tells me you are \"too much\" or \"not enough\" of their culture",
+        "labels i am not obey cultural / religion ethics",
+        "forcing cultural / spiritual practices upon someone",
+        "constructing false beliefs on cultural / religious prospects",
+        "preventing from involving in religious praticies",
+        "ignores & forces to go against dietary constraints",
+        "twisting the ideologies to go against the belief of god",
+        "threatening to out of my own beliefs",
+        "others"
+      ],
+      "patenal parental abuse": [
+        "maltreatment",
+        "wrong guidance by the parents",
+        "unhelpful to render support at hard times",
+        "opposing at difficult situations",
+        "neglected by parents for shelter",
+        "maintenance",
+        "creating obstacles for self development",
+        "presenting contradictory ideas on well being",
+        "negative or unfavourable influence",
+        "exploiting for the benefit of finance",
+        "others"
+      ]
+    },
+    "family violence": {
+      "dowry related abuse": [
+        "intentional setting to fire or acid attacks",
+        "psychological manipulation",
+        "voluntary drive to fed worthless",
+        "isolating",
+        "compelled loneliness",
+        "obliging to forced demands",
+        "preventing me from accessing my own resources",
+        "controls my daily life and expands power",
+        "others"
+      ],
+      "intra women relational conflict": [
+        "exercising harm in public",
+        "disturbing the emotional well being",
+        "escalation to abusive situations",
+        "blocking support network",
+        "leaving me financially vulnerable",
+        "others"
+      ],
+      "violence by any member of the family": [
+        "making me powerless",
+        "forcing to obey irrational set of practices",
+        "blaming on the character",
+        "robbing the sense of identify",
+        "burdening with household responsibilities",
+        "abolishing the recreating or rehabilitation activities",
+        "others"
+      ]
+    },
+    "substance use disorder": {
+      "finacuial explotiation": [
+        "drain in family finances due to direct purchase costs",
+        "destabilizing household like selling jewels",
+        "vessels & ones",
+        "increased medical coast as effect of alcoholism & addiction",
+        "financial burden of debits",
+        "loans and high interest exorbitant",
+        "per petuating cycle of poverty"
+      ],
+      "smoking and drug consumption": [
+        "lack of trust issues",
+        "emotional stress of witnessing the consumption activity",
+        "unhealthy communication patterns",
+        "violence due to dosing behaviour",
+        "side effects of secondary smoking"
+      ],
+      "women ban for work": [
+        "underestimating the ability to work",
+        "discouraging from exhibiting skills",
+        "foreign to quit job",
+        "operating the background by constant follow up chasing",
+        "gathering evidence of functions at work with co workers"
+      ],
+      "suspecting women on affairs at work place": [
+        "none recognizing the inherent worth",
+        "devaluing the work contributions",
+        "with holding growing opportunities",
+        "failure to create a respectable environment",
+        "encouraging anonymous communication"
+      ]
+    }
+  },
+  "workplace violence": {
+    "criminal intent": {
+      "commiting a crime": [
+        "motivating to involve in robbery",
+        "forcing to be involved in strikes",
+        "decreased productivity",
+        "disturbing workplace environment",
+        "increasing stress by work target",
+        "creating the risk to health",
+        "exchanging cash",
+        "changing shifts without",
+        "bullying",
+        "emotional abuse & abuse",
+        "threatened beliefs about the future",
+        "others"
+      ]
+    },
+    "ideological violence": {
+      "sexual harassment": [
+        "request for sexual favour",
+        "unwelcome sexual advances or conduct",
+        "injustices in punishment",
+        "employer fails to address known instance of sexual harassment",
+        "failing to investigate the complaints",
+        "gender favours",
+        "attacker occupying the position of power",
+        "lack of adequate security & protection system",
+        "failure to acknowledge individual right to file a law suit",
+        "others"
+      ],
+      "political, religious threats": [
+        "manifestation of opposing ideologies",
+        "occurrence of hate crimes",
+        "target attacks",
+        "active shooter incidents",
+        "working against organisation myths",
+        "suspicion with former co-workers",
+        "others"
+      ],
+      "intimidated by specific group": [
+        "terrorism",
+        "religious extremism",
+        "involve in ideology",
+        "back stabbing deviating from own beliefs",
+        "involvement in political violence",
+        "targeting opposing ideologies",
+        "others"
+      ],
+      "intimidated by unions": [
+        "forced involvement in labour disputes",
+        "weakening existing unions",
+        "not obeying union rules",
+        "resistance to strikes and lock out",
+        "resisting union ideologies",
+        "against the trust of the union policies",
+        "suppressing union participation",
+        "others"
+      ]
+    },
+    "worker on worker": {
+      "aggression": [
+        "violent behaviour",
+        "damaging social status",
+        "stalking",
+        "lack of mediations to conflict",
+        "others"
+      ],
+      "humiliation bullying": [
+        "helplessness to cope humiliation",
+        "hostility",
+        "witnessing unfairness",
+        "devaluation of the self",
+        "others"
+      ],
+      "groupism": [
+        "inducting in unhealthy behaviours",
+        "involving in delinquency",
+        "suggestion to adopt reckless activities",
+        "creating a toxic environment",
+        "others"
+      ],
+      "competition in perfermance": [
+        "jealousy",
+        "back stabbing",
+        "pulling legs",
+        "lack of empathy",
+        "others"
+      ]
+    },
+    "personal relationalship": {
+      "victims of domestic violence": [
+        "troubled both at home and workplace",
+        "lost productivity",
+        "increased stress",
+        "unbalanced power distribution",
+        "others"
+      ],
+      "spouses of co workers": [
+        "suspicion",
+        "public labelling",
+        "engaging in conflict in public",
+        "annoying & negotiation",
+        "others"
+      ],
+      "family members as co workers": [
+        "lost trust in work place",
+        "neglected well being",
+        "irrealistic perception",
+        "negative attitudes",
+        "others"
+      ],
+      "extramarital affairs at work place": [
+        "behaviour changes",
+        "vulnerability to new relationships",
+        "volatile situation or work place",
+        "others"
+      ]
+    }
+  },
+  "sexual violence": {
+    "sexual harasment": {
+      "bad touch during travel": [
+        "experience of a harmful acts",
+        "climate o fear",
+        "environment of discomforts",
+        "restricted freedom of movement",
+        "others"
+      ],
+      "unwelcoming sexual remarks": [
+        "catcalling",
+        "exhibition",
+        "received a suggestive comments about the appearance",
+        "offensive jokes of sexual nature",
+        "others"
+      ],
+      "sexual assault, kidnap threat": [
+        "stalking to connect through phone or social media",
+        "one side love chasing",
+        "refuse gestures and comments",
+        "others"
+      ],
+      "gestures, postures and leering": [
+        "staring without a specific purpose",
+        "unwanted attension of sexual nature",
+        "hashing",
+        "inapproriate digital messages",
+        "others"
+      ],
+      "body shaming": [
+        "uncomfortable remarks about the body shape",
+        "breach of boundaries",
+        "alarming emotional attacks",
+        "distressful questioning",
+        "others"
+      ]
+    },
+    "assault & rape": {
+      "demonstration of power": [
+        "exerting influence on decision making",
+        "with holding freedom of speech",
+        "unreasonable restriction in public places",
+        "strict adherence to rules without regularities",
+        "others"
+      ],
+      "irrational sexual demands": [
+        "dis obedience to obliged empathy",
+        "power struggles at public spaces",
+        "denial of rights",
+        "lack of respected and dignity",
+        "others"
+      ],
+      "isolation tactics": [
+        "physical distancing from others",
+        "lieng & manipulating about a social dysfunction",
+        "limiting interaction with public",
+        "restricting & avoiding gathering",
+        "others"
+      ],
+      "usage of drugs and induction": [
+        "public toxication",
+        "drug possession",
+        "public consumption of illegal substance",
+        "creating public nuisance",
+        "others"
+      ]
+    },
+    "relationship affairs": {
+      "anonymous communication": [
+        "inducing shyness",
+        "lack of accountability in communication",
+        "sharing sensitive information",
+        "erosion of trust statements",
+        "others"
+      ],
+      "emotional attacks": [
+        "creating a confused state of mind",
+        "inducing loneliness by with drawal",
+        "fostering emotional dependence",
+        "creating a sense of guilt",
+        "others"
+      ],
+      "provocation by appearances": [
+        "voluntarity hurting the partner",
+        "blackmailing",
+        "creating a insecure environment",
+        "provoking jealousy",
+        "others"
+      ],
+      "inducing psychological pain": [
+        "inducing negative feeling of separation",
+        "sucidal ideation",
+        "frequently embarking relationship conflicts",
+        "manifesting a feeling of emptiness",
+        "shame",
+        "debihitating pain",
+        "others"
+      ],
+      "distracting": [
+        "excessive mobile phone engagement",
+        "pre occupied thoughts",
+        "exagerating mis understanding",
+        "work alcoholism of one of the partner",
+        "others"
+      ]
+    },
+    "eve teasing": {
+      "sexually suggestive remarks": [
+        "whistling",
+        "using vulgar language",
+        "intimidating looks",
+        "cyber stalking",
+        "others"
+      ],
+      "brusting to gain attension": [
+        "induction to feel ashamed"
+      ],
+      "catcalls, grouping & expanding vulgarity": [
+        "playful, hurtful teasing",
+        "others"
+      ]
+    },
+    "shame, mapping, acid attacks": {
+      "inducing fear": [
+        "demonstration of suicide attends"
+      ],
+      "taking control over bodies": [
+        "exaggerated feeling of love & care"
+      ],
+      "fear of public mark of shame": [
+        "retribution for women's rejection",
+        "others"
+      ]
+    }
+  },
+  "harassment / other violence": {
+    "abuses & harassment": {
+      "physical": [
+        "standing too close",
+        "intimidating",
+        "aggressive postures",
+        "touching body",
+        "unwanted kissing",
+        "forcing the child to touch them",
+        "sending nude pictures",
+        "forcing to watch porn",
+        "flashing / genital exposure",
+        "rape attempt",
+        "with holding information",
+        "beating",
+        "pushing",
+        "burning",
+        "un coelcoming postures",
+        "taking pictures",
+        "others"
+      ],
+      "emotional": [
+        "bullying & black mail",
+        "silent treatment",
+        "isolating from peers",
+        "ridiculing",
+        "mocking",
+        "ill treatment",
+        "others"
+      ],
+      "sexual abuse": [
+        "penetration",
+        "rape",
+        "oral sex induction",
+        "non penetrating activity",
+        "forcing / inviting for sexual gratification",
+        "flasing or grooming for fecture abuse",
+        "others"
+      ],
+      "neglect": [
+        "failure in addressing child's basic needs",
+        "impairment of child health",
+        "unattending to child's psychological needs",
+        "in attension to emotional needs",
+        "abandonment",
+        "allowing the child to exterience harm",
+        "others"
+      ]
+    }
+  }
+}

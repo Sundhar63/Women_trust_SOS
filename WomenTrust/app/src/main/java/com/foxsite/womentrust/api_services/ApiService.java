@@ -62,6 +62,18 @@ public interface ApiService {
     @POST("/api/logout")
     Call<JsonObject> logout();
 
+    @POST("api/auth/refresh")
+    Call<JsonObject> refreshSession(@Body AuthRefreshRequest request);
+
+    @POST("api/auth/logout")
+    Call<JsonObject> logoutSession(@Body AuthLogoutRequest request);
+
+    @POST("api/API/")
+    Call<JsonArray> saveUserLocation(@Body SaveLocationRequest saveLocationRequest);
+
+    @GET("api/auth/me")
+    Call<JsonObject> me();
+
     @GET("api/getProducts.php")
     Call<JsonObject> getProductList(
             @Query("categoryId") String categoryId

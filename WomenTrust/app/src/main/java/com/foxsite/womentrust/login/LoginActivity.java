@@ -44,6 +44,7 @@ import com.foxsite.womentrust.api_services.ApiService;
 import com.foxsite.womentrust.api_services.RetrofitClient;
 import com.foxsite.womentrust.app_utills.AppUtils;
 import com.foxsite.womentrust.app_utills.LoadingDialog;
+import com.foxsite.womentrust.app_utills.SessionManager;
 import com.foxsite.womentrust.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
@@ -228,19 +229,16 @@ public class LoginActivity extends AppCompatActivity {
     ) {
         setLoginLoading(true);
         ApiService apiService = RetrofitClient.getApiService("");
-        LoginRequest loginObject = new LoginRequest("CheckLogin", userName, password, ln);
-        Gson gson = new Gson();
-        String json = gson.toJson(loginObject);
-        Log.d("String_sample", json);
+        SessionManager sessionManager = SessionManager.get(this);
+        LoginRequest loginObject = new LoginRequest(
+                "CheckLogin", userName, password, sessionManager.getDeviceId(), ln);
         Call<JsonArray> call = apiService.login(loginObject);
         call.enqueue(new Callback<JsonArray>() {
             @Override
             public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
                 setLoginLoading(false);
-                Log.d("Login_Response", response.toString());
                 if (response.isSuccessful() && response.body() != null) {
                     JsonArray data = response.body();
-                    Log.d("LoginData_Response", data.toString());
 
                     try {
                         JSONArray jsonArray = new JSONArray(data.toString());
@@ -249,10 +247,18 @@ public class LoginActivity extends AppCompatActivity {
 
                         if ("Success".equalsIgnoreCase(status)) {
                             appUtils.showToast(getString(R.string.login_successful));
-                            
-                            // Extract JWT Token from the response
+
+                            // Access + refresh token pair from the backend.
                             String token = jsonObject.optString("Token", "");
-                            
+                            String refreshToken = jsonObject.optString("RefreshToken", "");
+                            long expiresIn = jsonObject.optLong("ExpiresIn", 1800L);
+                            if (token.isEmpty()) {
+                                token = jsonObject.optString("access_token", "");
+                            }
+                            if (refreshToken.isEmpty()) {
+                                refreshToken = jsonObject.optString("refresh_token", "");
+                            }
+
                             JSONArray loginDataJSONArray = jsonObject.optJSONArray("LOGIN_MASTERs");
                             if (loginDataJSONArray != null && loginDataJSONArray.length() > 0) {
                                 JSONObject loginDataJSONObject = loginDataJSONArray.getJSONObject(0);
@@ -261,7 +267,6 @@ public class LoginActivity extends AppCompatActivity {
                                 String _userCode = loginDataJSONObject.optString("CODE", "");
                                 String _name = loginDataJSONObject.optString("NAME", "");
                                 String _username = loginDataJSONObject.optString("USERNAMES", "");
-                                String _password = loginDataJSONObject.optString("PASSWORDS", "");
                                 String _mobile = loginDataJSONObject.optString("MOBILE", "");
                                 String _altermobile = loginDataJSONObject.optString("ALTERNATIVE_MOBILE", "");
                                 String _email = loginDataJSONObject.optString("EMAIL", "");
@@ -277,7 +282,6 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(getString(R.string.userCode), _userCode);
                                 editor.putString(getString(R.string.name), _name);
                                 editor.putString(getString(R.string.username), _username);
-                                editor.putString(getString(R.string.password), _password);
                                 editor.putString(getString(R.string.mobile), _mobile);
                                 editor.putString(getString(R.string.email), _email);
                                 editor.putString(getString(R.string.role), _role);
@@ -286,11 +290,16 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(getString(R.string.dateUpdated), _dateUpdated);
                                 editor.putString(getString(R.string.updatedBy), _updatedBy);
 
-                                // Save JWT Token
-                                editor.putString("jwt_token", token);
+                                // Never store the password locally.
+                                editor.remove(getString(R.string.password));
 
                                 editor.putBoolean(getString(R.string.login_status), true);
-                                editor.commit();
+                                editor.apply();
+
+                                if (!token.isEmpty() && !refreshToken.isEmpty()) {
+                                    sessionManager.saveSession(token, refreshToken, expiresIn);
+                                }
+
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(mainIntent);

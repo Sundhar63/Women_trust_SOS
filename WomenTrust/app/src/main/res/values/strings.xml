@@ -156,6 +156,8 @@
     <!--    Dashboard-->
     <string name="logout">Log out</string>
     <string name="logout_alert">Are you sure want to logout?</string>
+    <string name="session_expired">Your session has expired. Please sign in again.</string>
+    <string name="offline_mode_message">You are offline. Some features will be unavailable until you reconnect.</string>
     <string name="no_text">No</string>
     <string name="yes_text">Yes</string>
 
@@ -249,5 +251,18 @@
     <string name="abuse_level_high">High</string>
     <string name="abuse_level_medium">Medium</string>
     <string name="abuse_level_low">Low</string>
+
+    <!-- Location Service Strings -->
+    <string name="location_required_title">Location Access Required</string>
+    <string name="location_required_message">Women Trust requires your location to provide emergency safety assistance and route help to your current coordinates. Please allow location access to continue.</string>
+    <string name="location_allow">Allow Location</string>
+    <string name="location_exit">Exit App</string>
+    <string name="location_try_again">Try Again</string>
+    <string name="location_open_settings">Open Settings</string>
+    <string name="location_permission_denied">Location permission is required for Women Trust to keep you safe. Please grant location access in App Settings.</string>
+    <string name="location_disabled_title">Location Services Disabled</string>
+    <string name="location_disabled_message">GPS / Location services are turned off on your device. Please turn them on in system settings to use the app.</string>
+    <string name="location_open_settings_failed">Could not open location settings automatically. Please enable location manually.</string>
+    <string name="location_unavailable">Current location fix is temporarily unavailable.</string>
 
 </resources>

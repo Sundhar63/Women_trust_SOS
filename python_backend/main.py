@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
-from routers import api, voice
+from routers import api, auth, voice
 from database import engine
 import models
 
@@ -24,6 +24,7 @@ app.add_middleware(
 )
 
 app.include_router(api.router)
+app.include_router(auth.router)
 app.include_router(voice.router)
 
 @app.get("/")

@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, File, UploadFile
+from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Header
 from routers.voice import transcribe_audio,classify_text
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from typing import List
+from typing import List, Optional
+from datetime import datetime
 import requests
 import os
 
@@ -10,11 +11,120 @@ from database import get_db
 import schemas
 import models
 import security
+from routers import auth
 
 router = APIRouter(prefix="/api/API", tags=["API"])
 
+def get_abuse_contact_details(db: Session, rating: int = 0, level: Optional[str] = None, ln: Optional[str] = None):
+    if not level:
+        if rating >= 10:
+            level = "Severe"
+        elif rating >= 5:
+            level = "Moderate"
+        else:
+            level = "Mild"
+
+    # Query active suggestions and helplines directly from database
+    contacts = db.query(models.AbuseContactMaster).filter(
+        models.AbuseContactMaster.ABUSE_LEVEL == level,
+        models.AbuseContactMaster.MASTER_STATUS == "Active"
+    ).order_by(models.AbuseContactMaster.SNO.asc()).all()
+
+    particulars = []
+    image_names = []
+    contact_no = "100"
+    contact_mail = "support@womentrust.org"
+    contact_website = "https://www.womentrust.org/help"
+
+    if contacts:
+        for c in contacts:
+            text = c.TAMIL_PARTICULAR if ln == "ta" and c.TAMIL_PARTICULAR else c.PARTICULAR
+            if text:
+                particulars.append(text)
+            if c.IMAGE_NAME and c.IMAGE_NAME not in image_names:
+                image_names.append(c.IMAGE_NAME)
+        first = contacts[0]
+        contact_no = first.CONTACT_NO or contact_no
+        contact_mail = first.CONTACT_MAIL_ID or contact_mail
+        contact_website = first.CONTACT_WEBSITE or contact_website
+
+    # Fallback to defaults if database rows not yet inserted
+    if not particulars:
+        if level == "Severe":
+            particulars = [
+                "1 - Consult A Legal Advisor",
+                "2 - Talk To a family therapist Dr. Saranya Sundaraju 9500185855",
+                "3 - Save Counselling 9842868900",
+                "4 - Telemanas Nimhans",
+                "5 - KAVALAN UDANI APP",
+                "6 - NCW Women Helpline 181",
+            ] if ln != "ta" else [
+                "1 - சட்ட ஆலோசகரை அணுகவும்",
+                "2 - குடும்ப சிகிச்சையாளர் டாக்டர் சரண்யா சுந்தரராஜுவிடம் பேசவும் 9500185855",
+                "3 - சேவ் ஆலோசனை மையம் 9842868900",
+                "4 - டெலிமானாஸ் நிம்ஹான்ஸ் (Telemanas Nimhans)",
+                "5 - காவலன் உதவி செயலி (Kavalan Uthavi App)",
+                "6 - தேசிய மகளிர் ஆணைய உதவி எண் 181",
+            ]
+            image_names = ["tamilnadu_police_kaaval_uthavi.png"]
+            contact_no = "181"
+        elif level == "Moderate":
+            particulars = [
+                "1 - Warn the harassar (Husband / in law family to Stop",
+                "2 - Take some chance to record the Harassment",
+                "3 - Have a detailed log of Date of the Harassment, Time, location, witness",
+                "4 - Identify Early & report within family",
+                "5 - 'No' Means 'No'",
+                "6 - Be cautious & aware of external and legal remedy",
+                "7 - https://telemanas.mohf.gov.in/home",
+            ] if ln != "ta" else [
+                "1 - துன்புறுத்துபவரை (கணவர் / மாமியார் குடும்பத்தினர்) நிறுத்துமாறு எச்சரிக்கவும்",
+                "2 - துன்புறுத்தலை பதிவு செய்ய வாய்ப்பைப் பயன்படுத்தவும்",
+                "3 - துன்புறுத்தல் நடந்த தேதி, நேரம், இடம், சாட்சிகள் பற்றிய விரிவான குறிப்பை வைத்திருக்கவும்",
+                "4 - ஆரம்பத்திலேயே கண்டறிந்து குடும்பத்திற்குள் தெரிவிக்கவும்",
+                "5 - 'இல்லை' என்றால் 'இல்லை' என்று உறுதியாக இருங்கள்",
+                "6 - வெளிப்புற மற்றும் சட்டப்பூர்வ தீர்வுகள் குறித்து எச்சரிக்கையாகவும் விழிப்புணர்வுடனும் இருங்கள்",
+                "7 - https://telemanas.mohf.gov.in/home",
+            ]
+            image_names = ["telemanas_logo.png"]
+            contact_no = "14416"
+            contact_website = "https://telemanas.mohf.gov.in/home"
+        else:
+            particulars = [
+                "1 - Talk to trusted Peers, Mentors & Family Member",
+                "2 - Strengthen yourself to Ignore & divert",
+                "3 - Assert to Say 'No'",
+                "4 - Use it as a learning Opportunity to cope",
+                "5 - Do not cry, depressed or Shows Signs of Victimisation",
+            ] if ln != "ta" else [
+                "1 - நம்பிக்கையான நண்பர்கள், வழிகாட்டிகள் மற்றும் குடும்பத்தினரிடம் பேசுங்கள்",
+                "2 - புறக்கணிக்கவும் கவனத்தை திசைதிருப்பவும் உங்களை பலப்படுத்துங்கள்",
+                "3 - 'வேண்டாம்' என்று உறுதியாகச் சொல்ல பழகுங்கள்",
+                "4 - இதை சமாளிப்பதற்கான கற்றல் வாய்ப்பாகப் பயன்படுத்துங்கள்",
+                "5 - அழவோ, மனச்சோர்வடையவோ அல்லது பாதிக்கப்பட்டவராகவோ காட்டாதீர்கள்",
+            ]
+            image_names = ["save_logo.png"]
+            contact_no = "100"
+
+    if not image_names:
+        image_names = ["save_logo.png"]
+
+    return {
+        "ABUSE_LEVEL": level,
+        "VIOLENCE_RATING": rating,
+        "IMAGE_NAME": image_names,
+        "PARTICULAR": particulars,
+        "CONTACT_NO": contact_no,
+        "CONTACT_MAIL_ID": contact_mail,
+        "CONTACT_WEBSITE": contact_website,
+    }
+
 @router.post("/")
-def process_event(event: schemas.Event, db: Session = Depends(get_db)):
+def process_event(
+    event: schemas.Event,
+    db: Session = Depends(get_db),
+    authorization: Optional[str] = Header(default=None),
+):
     message_list = []
     
     try:
@@ -56,18 +166,14 @@ def process_event(event: schemas.Event, db: Session = Depends(get_db)):
             ).first()
             
             if user and security.verify_password(event.Password, user.PASSWORDS):
-                # Generate Secure JWT Token
-                access_token = security.create_access_token(data={"sub": user.USERNAMES})
-                
-                user_data = user.__dict__.copy()
-                # Do not send the hashed password back to the frontend
-                user_data.pop("PASSWORDS", None)
-                
-                message_list.append({
-                    "Status": "Success", 
-                    "LOGIN_MASTERs": [user_data],
-                    "Token": access_token # Frontend must save this!
-                })
+                # Issue a short-lived access token plus a rotating refresh token.
+                access_token, refresh_token = auth.create_session(
+                    db,
+                    user,
+                    device_id=event.DeviceId,
+                )
+
+                message_list.append(auth.session_response(access_token, refresh_token, user))
             else:
                 message_list.append({"Status": "Not Success", "LOGIN_MASTERs": None})
 
@@ -80,6 +186,37 @@ def process_event(event: schemas.Event, db: Session = Depends(get_db)):
                 message_list.append({"Status": "Success"})
             else:
                 message_list.append({"Status": "Not Success"})
+
+        elif event.Actions == "SaveUserLocation":
+            user = auth.resolve_user_from_header(authorization, db)
+            if not user:
+                message_list.append({"Status": "Not Success", "Message": "Not authenticated"})
+            elif event.Latitude is None or event.Longitude is None:
+                message_list.append({"Status": "Not Success", "Message": "Latitude and longitude are required"})
+            elif not (-90.0 <= event.Latitude <= 90.0) or not (-180.0 <= event.Longitude <= 180.0):
+                message_list.append({"Status": "Not Success", "Message": "Invalid coordinates"})
+            else:
+                captured_at = datetime.utcnow()
+                if event.CapturedAt:
+                    try:
+                        captured_at = datetime.fromisoformat(event.CapturedAt.replace("Z", "+00:00")).replace(tzinfo=None)
+                    except ValueError:
+                        pass
+
+                location = models.UserLocation(
+                    LOGIN_ID=user.ID,
+                    LATITUDE=event.Latitude,
+                    LONGITUDE=event.Longitude,
+                    ACCURACY=event.Accuracy,
+                    PROVIDER=(event.Provider or "")[:32] or None,
+                    DEVICE_ID=(event.DeviceId or "")[:128] or None,
+                    CAPTURED_AT=captured_at,
+                    CREATED_AT=datetime.utcnow(),
+                )
+                db.add(location)
+                db.commit()
+                db.refresh(location)
+                message_list.append({"Status": "Success", "LocationId": location.ID})
 
         elif event.Actions == "TypeOfViolence":
             items = db.query(models.ViolenceMaster).filter(
@@ -165,26 +302,31 @@ def process_event(event: schemas.Event, db: Session = Depends(get_db)):
                 message_list.append({"Status": "Not Success", "sUB_CATEGORY_VIOLENCE_MASTERs": None})
 
         elif event.Actions == "Abuse":
-            # Simplified Abuse implementation due to extreme complexity
-            db.commit()
-            message_list.append({"Status": "Success"})
-        elif event.Actions == "AbuseContact":
-            # Returning dummy data for AbuseContact as requested by user
-            dummy_contact = {
-                "VIOLENCE_NAME": event.ViolenceName if event.ViolenceName else "Domestic Violence",
-                "ABUSE_LEVEL": "High",
-                "PARTICULAR": [
-                    "1 - Call Police at 100", 
-                    "2 - Women Helpline at 1091", 
-                    "3 - Domestic Abuse Hotline at 181"
-                ],
-                "CONTACT_NO": "100",
-                "CONTACT_MAIL_ID": "support@womentrust.org",
-                "CONTACT_WEBSITE": "https://www.womentrust.org/help"
-            }
+            # Extract rating from event or aBUSES_MASTER
+            rating = 0
+            if event.ColourRating is not None:
+                rating = event.ColourRating
+            elif event.aBUSES_MASTER and len(event.aBUSES_MASTER) > 0:
+                raw_rating = event.aBUSES_MASTER[0].get("ColourRating")
+                try:
+                    rating = int(raw_rating) if raw_rating is not None else 0
+                except (ValueError, TypeError):
+                    rating = 0
+
+            contact_detail = get_abuse_contact_details(db, rating=rating, ln=event.ln)
             message_list.append({
-                "Status": "Success", 
-                "aBUSE_CONTACT_DETAILS_s": [dummy_contact]
+                "Status": "Success",
+                "aBUSE_CONTACT_DETAILS_s": [contact_detail]
+            })
+
+        elif event.Actions == "AbuseContact":
+            rating = 0
+            if event.ColourRating is not None:
+                rating = event.ColourRating
+            contact_detail = get_abuse_contact_details(db, rating=rating, ln=event.ln)
+            message_list.append({
+                "Status": "Success",
+                "aBUSE_CONTACT_DETAILS_s": [contact_detail]
             })
             
         else:
