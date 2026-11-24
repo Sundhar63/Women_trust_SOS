@@ -55,19 +55,19 @@ def get_abuse_contact_details(db: Session, rating: int = 0, level: Optional[str]
                 "1 - Consult A Legal Advisor",
                 "2 - Talk To a family therapist Dr. Saranya Sundaraju 9500185855",
                 "3 - Save Counselling 9842868900",
-                "4 - Telemanas Nimhans",
+                "4 - Telemanas Nimhans 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)",
                 "5 - KAVALAN UDANI APP",
                 "6 - NCW Women Helpline 181",
             ] if ln != "ta" else [
                 "1 - சட்ட ஆலோசகரை அணுகவும்",
                 "2 - குடும்ப சிகிச்சையாளர் டாக்டர் சரண்யா சுந்தரராஜுவிடம் பேசவும் 9500185855",
                 "3 - சேவ் ஆலோசனை மையம் 9842868900",
-                "4 - டெலிமானாஸ் நிம்ஹான்ஸ் (Telemanas Nimhans)",
+                "4 - டெலிமானாஸ் நிம்ஹான்ஸ் 24x7 கட்டணமில்லா உதவி எண்: 14416 / மாற்று எண்: 1-800-891-4416 (இலவச மற்றும் ரகசிய ஆதரவு)",
                 "5 - காவலன் உதவி செயலி (Kavalan Uthavi App)",
                 "6 - தேசிய மகளிர் ஆணைய உதவி எண் 181",
             ]
-            image_names = ["tamilnadu_police_kaaval_uthavi.png"]
-            contact_no = "181"
+            image_names = ["tamilnadu_police_kaaval_uthavi.png", "telemanas_logo.png"]
+            contact_no = "181 / 14416"
         elif level == "Moderate":
             particulars = [
                 "1 - Warn the harassar (Husband / in law family to Stop",
@@ -76,7 +76,7 @@ def get_abuse_contact_details(db: Session, rating: int = 0, level: Optional[str]
                 "4 - Identify Early & report within family",
                 "5 - 'No' Means 'No'",
                 "6 - Be cautious & aware of external and legal remedy",
-                "7 - https://telemanas.mohf.gov.in/home",
+                "7 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support - https://telemanas.mohf.gov.in/home)",
             ] if ln != "ta" else [
                 "1 - துன்புறுத்துபவரை (கணவர் / மாமியார் குடும்பத்தினர்) நிறுத்துமாறு எச்சரிக்கவும்",
                 "2 - துன்புறுத்தலை பதிவு செய்ய வாய்ப்பைப் பயன்படுத்தவும்",
@@ -84,10 +84,10 @@ def get_abuse_contact_details(db: Session, rating: int = 0, level: Optional[str]
                 "4 - ஆரம்பத்திலேயே கண்டறிந்து குடும்பத்திற்குள் தெரிவிக்கவும்",
                 "5 - 'இல்லை' என்றால் 'இல்லை' என்று உறுதியாக இருங்கள்",
                 "6 - வெளிப்புற மற்றும் சட்டப்பூர்வ தீர்வுகள் குறித்து எச்சரிக்கையாகவும் விழிப்புணர்வுடனும் இருங்கள்",
-                "7 - https://telemanas.mohf.gov.in/home",
+                "7 - டெலிமானாஸ் 24x7 கட்டணமில்லா உதவி எண்: 14416 / மாற்று எண்: 1-800-891-4416 (இலவச மற்றும் ரகசிய ஆதரவு - https://telemanas.mohf.gov.in/home)",
             ]
             image_names = ["telemanas_logo.png"]
-            contact_no = "14416"
+            contact_no = "14416 / 1-800-891-4416"
             contact_website = "https://telemanas.mohf.gov.in/home"
         else:
             particulars = [
@@ -96,15 +96,17 @@ def get_abuse_contact_details(db: Session, rating: int = 0, level: Optional[str]
                 "3 - Assert to Say 'No'",
                 "4 - Use it as a learning Opportunity to cope",
                 "5 - Do not cry, depressed or Shows Signs of Victimisation",
+                "6 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)",
             ] if ln != "ta" else [
                 "1 - நம்பிக்கையான நண்பர்கள், வழிகாட்டிகள் மற்றும் குடும்பத்தினரிடம் பேசுங்கள்",
                 "2 - புறக்கணிக்கவும் கவனத்தை திசைதிருப்பவும் உங்களை பலப்படுத்துங்கள்",
                 "3 - 'வேண்டாம்' என்று உறுதியாகச் சொல்ல பழகுங்கள்",
                 "4 - இதை சமாளிப்பதற்கான கற்றல் வாய்ப்பாகப் பயன்படுத்துங்கள்",
                 "5 - அழவோ, மனச்சோர்வடையவோ அல்லது பாதிக்கப்பட்டவராகவோ காட்டாதீர்கள்",
+                "6 - டெலிமானாஸ் 24x7 கட்டணமில்லா உதவி எண்: 14416 / மாற்று எண்: 1-800-891-4416 (இலவச மற்றும் ரகசிய ஆதரவு)",
             ]
-            image_names = ["save_logo.png"]
-            contact_no = "100"
+            image_names = ["save_logo.png", "telemanas_logo.png"]
+            contact_no = "14416 / 1-800-891-4416"
 
     if not image_names:
         image_names = ["save_logo.png"]

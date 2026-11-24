@@ -622,6 +622,9 @@ public class AbuseActivity extends AppCompatActivity {
                 activityAbuseBinding.categoryViolenceTextV.setText(joined);
 
                 violenceRating = Math.min(17, Math.max(getCategoryViolences.size(), voiceRatingFloor));
+                if (isMandatoryHighSeverity(getCategoryName, getSubCategoryName, getCategoryViolenceName, getCategoryViolences)) {
+                    violenceRating = Math.max(violenceRating, 11);
+                }
 
                 activityAbuseBinding.segmentedProgress.setProgress(violenceRating);
                 updateRatingDisplay();
@@ -773,6 +776,10 @@ public class AbuseActivity extends AppCompatActivity {
         // use the backend's severity rating (never lower than the number of matched labels)
         voiceRatingFloor = Math.min(17, intent.getIntExtra("voiceRating", 0));
         violenceRating = Math.min(17, Math.max(voiceViolations.size(), voiceRatingFloor));
+        if (isMandatoryHighSeverity(getCategoryName, pendingAutoSubViolence, pendingAutoCategoryViolence, voiceViolations)) {
+            violenceRating = Math.max(violenceRating, 11);
+            voiceAbuseLevel = "High";
+        }
         activityAbuseBinding.categoryViolenceTextV.setText(getSelectedSubCategoryViolence);
         activityAbuseBinding.segmentedProgress.setProgress(violenceRating);
         updateRatingDisplay();
@@ -957,6 +964,26 @@ public class AbuseActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isMandatoryHighSeverity(String cat, String subCat, String catViol, List<String> subCatViolations) {
+        StringBuilder sb = new StringBuilder();
+        if (cat != null) sb.append(cat).append(" ");
+        if (subCat != null) sb.append(subCat).append(" ");
+        if (catViol != null) sb.append(catViol).append(" ");
+        if (subCatViolations != null) {
+            for (String s : subCatViolations) {
+                if (s != null) sb.append(s).append(" ");
+            }
+        }
+        String lower = sb.toString().toLowerCase();
+        return lower.contains("alcohol") || lower.contains("drunk") || lower.contains("drink") || lower.contains("booze") || lower.contains("liquor") || lower.contains("wine") || lower.contains("beer") || lower.contains("substance")
+                || lower.contains("போதை") || lower.contains("குடி") || lower.contains("சாராயம்") || lower.contains("மது")
+                || lower.contains("physical") || lower.contains("hitting") || lower.contains("slap") || lower.contains("beat") || lower.contains("kick") || lower.contains("push") || lower.contains("punch") || lower.contains("harm") || lower.contains("injury") || lower.contains("burning") || lower.contains("scalding") || lower.contains("strike")
+                || lower.contains("அடி") || lower.contains("உதை") || lower.contains("தாக்குதல்") || lower.contains("உடல் ரீதியான")
+                || lower.contains("child") || lower.contains("minor") || lower.contains("pocso") || lower.contains("குழந்தை") || lower.contains("சிறுமி") || lower.contains("மைனர்")
+                || lower.contains("eve teasing") || lower.contains("eve-teasing") || lower.contains("eveteasing") || lower.contains("school girl") || lower.contains("schoolgirl") || lower.contains("school") || lower.contains("catcall") || lower.contains("stalking")
+                || lower.contains("ஈவ்டீசிங்") || lower.contains("மாணவி") || lower.contains("பள்ளி");
+    }
+
     private void updateRatingDisplay() {
         int rating = violenceRating;
         int color;
@@ -981,6 +1008,9 @@ public class AbuseActivity extends AppCompatActivity {
     private JSONArray createContactDetailsJson(int rating, String catName, String subCatName, String catViolName) {
         JSONArray array = new JSONArray();
         try {
+            if (isMandatoryHighSeverity(catName, subCatName, catViolName, getCategoryViolences)) {
+                rating = Math.max(rating, 11);
+            }
             JSONObject obj = new JSONObject();
             String abuseLevel;
             String badge;
@@ -994,6 +1024,7 @@ public class AbuseActivity extends AppCompatActivity {
                 parts.put("3 - Assert to Say 'No'");
                 parts.put("4 - Use it as a learning Opportunity to cope");
                 parts.put("5 - Do not cry, depressed or Shows Signs of Victimisation");
+                parts.put("6 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)");
             } else if (rating < 10) {
                 abuseLevel = "Moderate";
                 badge = "telemanas_logo.png";
@@ -1003,14 +1034,14 @@ public class AbuseActivity extends AppCompatActivity {
                 parts.put("4 - Identify Early & report within family");
                 parts.put("5 - 'No' Means 'No'");
                 parts.put("6 - Be cautious & aware of external and legal remedy");
-                parts.put("7 - https://telemanas.mohf.gov.in/home");
+                parts.put("7 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (https://telemanas.mohf.gov.in/home)");
             } else {
                 abuseLevel = "Severe";
                 badge = "tamilnadu_police_kaaval_uthavi.png";
                 parts.put("1 - Consult A Legal Advisor");
                 parts.put("2 - Talk To a family therapist Dr. Saranya Sundaraju 9500185855");
                 parts.put("3 - Save Counselling 9842868900");
-                parts.put("4 - Telemanas Nimhans");
+                parts.put("4 - Telemanas Nimhans 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)");
                 parts.put("5 - KAVALAN UDANI APP");
                 parts.put("6 - NCW Women Helpline 181");
             }

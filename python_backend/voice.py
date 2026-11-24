@@ -11,9 +11,10 @@ load_dotenv()
 router = APIRouter(prefix="/api/Voice", tags=["Voice"])
 
 # These names must match your .env file exactly
-SPEECHMATICS_API_KEY = os.getenv("SPEECHMATICS_API_KEY")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+NVIDIA_API_KEY = (os.getenv("NVIDIA_API_KEY") or os.getenv("NVIDIA_NIMS_API_KEY") or "").strip() or None
+SPEECHMATICS_API_KEY = (os.getenv("SPEECHMATICS_API_KEY") or "").strip() or None
+GROQ_API_KEY = (os.getenv("GROQ_API_KEY") or "").strip() or None
+OPENROUTER_API_KEY = (os.getenv("OPENROUTER_API_KEY") or "").strip().lower() or None
 
 
 def is_tamil(text: str) -> bool:
@@ -442,9 +443,33 @@ async def transcribe_audio(audio_bytes, filename):
 
 
 async def _chat(messages):
-    """Send messages to Groq models, then OpenRouter. Returns the reply text or None."""
+    """Send messages to NVIDIA NIM (deepseek v4 flash, then mistral 4), then Groq, then OpenRouter."""
+    if NVIDIA_API_KEY:
+        for n_model in ["deepseek-ai/deepseek-v4-flash", "mistralai/mistral-large-4-1t-a52b"]:
+            try:
+                response = await asyncio.to_thread(
+                    requests.post,
+                    "https://integrate.api.nvidia.com/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {NVIDIA_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": n_model,
+                        "messages": messages,
+                        "temperature": 0.0,
+                        "response_format": {"type": "json_object"},
+                    },
+                    timeout=15,
+                )
+                print(f"[nvidia:{n_model}]", response.status_code)
+                if response.status_code == 200:
+                    return response.json()["choices"][0]["message"]["content"].strip()
+            except Exception as e:
+                print(f"[nvidia:{n_model}] FAILED: {e}")
+
     if GROQ_API_KEY:
-        for g_model in ["openai/gpt-oss-120b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b"]:
+        for g_model in ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]:
             try:
                 response = await asyncio.to_thread(
                     requests.post,
@@ -459,35 +484,36 @@ async def _chat(messages):
                         "temperature": 0.0,
                         "response_format": {"type": "json_object"},
                     },
-                    timeout=60,
+                    timeout=15,
                 )
                 print(f"[groq:{g_model}]", response.status_code)
-                response.raise_for_status()
-                return response.json()["choices"][0]["message"]["content"].strip()
+                if response.status_code == 200:
+                    return response.json()["choices"][0]["message"]["content"].strip()
             except Exception as e:
                 print(f"[groq:{g_model}] FAILED: {e}")
 
     if OPENROUTER_API_KEY:
-        try:
-            response = await asyncio.to_thread(
-                requests.post,
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": "meta-llama/llama-3.3-70b-instruct:free",
-                    "messages": messages,
-                    "temperature": 0.0,
-                },
-                timeout=60,
-            )
-            print("[openrouter]", response.status_code)
-            response.raise_for_status()
-            return response.json()["choices"][0]["message"]["content"].strip()
-        except Exception as e:
-            print(f"[openrouter] FAILED: {e}")
+        for o_model in ["meta-llama/llama-3.3-70b-instruct:free", "deepseek/deepseek-chat"]:
+            try:
+                response = await asyncio.to_thread(
+                    requests.post,
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": o_model,
+                        "messages": messages,
+                        "temperature": 0.0,
+                    },
+                    timeout=15,
+                )
+                print(f"[openrouter:{o_model}]", response.status_code)
+                if response.status_code == 200:
+                    return response.json()["choices"][0]["message"]["content"].strip()
+            except Exception as e:
+                print(f"[openrouter:{o_model}] FAILED: {e}")
 
     return None
 
@@ -571,15 +597,52 @@ async def classify_text(text):
         count = len(matched)
         result["metrics"] = {"matched_count": count}
 
+        # MANDATORY SAFETY GUARDRAIL:
+        # If there is alcoholic, physical abuse, child abuse, or school girl eve-teasing,
+        # it must show as High (Call the police / Rating >= 11) instead of mild.
+        combined_text = (
+            text.lower() + " " +
+            " ".join(matched).lower() + " " +
+            str(c.get("voilence", "")).lower() + " " +
+            str(c.get("sub_violence", "")).lower() + " " +
+            str(c.get("category_violence", "")).lower()
+        )
+        high_severity_patterns = [
+            r"\b(alcohol|alcoholic|drunk|drunkenness|drinking|booze|liquor|beer|wine|substance|intoxicat)\b",
+            r"(போதை|குடி|மது|சாராயம்)",
+            r"\b(physical|hitting|hit|slap|slapping|beat|beating|beaten|kick|kicking|push|pushing|punch|punching|bodily harm|injury|burning|scalding|hair pulling|strike|striking|trampl)\b",
+            r"(அடி|உதை|தாக்குதல்|உடல் ரீதியான|எரித்தல்)",
+            r"\b(child|minor|pocso|kid|pedophil|children|daughter|son|infant|toddler)\b",
+            r"(குழந்தை|சிறுமி|மைனர்|பச்சிளம்|சிறுவன்)",
+            r"\b(eve teasing|eve-teasing|eveteasing|school girl|schoolgirl|school-girl|college girl|school student|catcall|cat-call|catcalling|leering|whistling|stalking)\b",
+            r"(ஈவ்டீசிங்|பள்ளி மாணவி|மாணவி|கல்லூரி மாணவி)"
+        ]
+        has_mandatory_high = any(re.search(pat, combined_text, re.IGNORECASE) for pat in high_severity_patterns)
+
         if c.get("voilence") == "Casual Conversation":
             alert = "No Action Required"
+            rating = 0
+            level = "Low"
+        elif has_mandatory_high:
+            alert = "Call the police"
+            rating = max(11, count)
+            level = "High"
         elif count < 5:
             alert = "Counseling with our client"
+            rating = max(1, count)
+            level = "Low"
         elif count == 5:
             alert = "Counseling is needed"
+            rating = 5
+            level = "Medium"
         else:
             alert = "Call the police"
+            rating = min(17, max(11, count))
+            level = "High"
+
         result["alert_action"] = alert
+        result["abuse_level"] = level
+        result["violence_rating"] = rating
 
         if tamil:
             result["alert_action_ta"] = ALERTS_TA[alert]

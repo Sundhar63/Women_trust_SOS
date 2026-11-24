@@ -12,9 +12,9 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 SECRET_KEY = os.getenv("JWT_SECRET_KEY", "fallback_secret_key")
 ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 
-# Short-lived access token; the app silently refreshes it with a refresh token.
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
-REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "60"))
+# Long-lived access token so emergency SOS app never logs user out unexpectedly.
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "43200"))
+REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "90"))
 
 # Pepper used to hash refresh tokens before they are stored in the database.
 REFRESH_TOKEN_PEPPER = os.getenv("REFRESH_TOKEN_PEPPER", SECRET_KEY)

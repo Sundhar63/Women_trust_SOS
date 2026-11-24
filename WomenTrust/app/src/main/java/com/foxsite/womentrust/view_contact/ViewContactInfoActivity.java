@@ -125,6 +125,7 @@ public class ViewContactInfoActivity extends AppCompatActivity {
                     defaultParticulars.add("3 - Assert to Say 'No'");
                     defaultParticulars.add("4 - Use it as a learning Opportunity to cope");
                     defaultParticulars.add("5 - Do not cry, depressed or Shows Signs of Victimisation");
+                    defaultParticulars.add("6 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)");
                 } else if (rating < 10) {
                     abuseLevel = "Moderate";
                     levelColor = 0xFFF57F17; // Mild Yellow / Amber
@@ -136,7 +137,7 @@ public class ViewContactInfoActivity extends AppCompatActivity {
                     defaultParticulars.add("4 - Identify Early & report within family");
                     defaultParticulars.add("5 - 'No' Means 'No'");
                     defaultParticulars.add("6 - Be cautious & aware of external and legal remedy");
-                    defaultParticulars.add("7 - https://telemanas.mohf.gov.in/home");
+                    defaultParticulars.add("7 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (https://telemanas.mohf.gov.in/home)");
                 } else {
                     abuseLevel = "Severe";
                     levelColor = 0xFFD32F2F; // Severe Red
@@ -145,7 +146,7 @@ public class ViewContactInfoActivity extends AppCompatActivity {
                     defaultParticulars.add("1 - Consult A Legal Advisor");
                     defaultParticulars.add("2 - Talk To a family therapist Dr. Saranya Sundaraju 9500185855");
                     defaultParticulars.add("3 - Save Counselling 9842868900");
-                    defaultParticulars.add("4 - Telemanas Nimhans");
+                    defaultParticulars.add("4 - Telemanas Nimhans 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)");
                     defaultParticulars.add("5 - KAVALAN UDANI APP");
                     defaultParticulars.add("6 - NCW Women Helpline 181");
                 }

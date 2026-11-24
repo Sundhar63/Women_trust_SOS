@@ -42,24 +42,33 @@ public class SplashScreen extends AppCompatActivity {
             return;
         }
 
-        if (!sessionManager.hasSession()) {
+        android.content.SharedPreferences sharedPreferences =
+                getSharedPreferences(getString(R.string.sharedpref_name), MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean(getString(R.string.login_status), false)
+                || sessionManager.hasSession();
+
+        if (isLoggedIn) {
+            if (sessionManager.isAccessTokenValid()) {
+                goToMain();
+            } else {
+                refreshSession();
+            }
+            return;
+        }
+
+        android.content.SharedPreferences appSettings = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String lang = appSettings.getString("language_code", "");
+        if (lang != null && !lang.isEmpty()) {
+            goToLogin();
+        } else {
             goToLanguageSelect();
-            return;
         }
-
-        if (sessionManager.isAccessTokenValid()) {
-            goToMain();
-            return;
-        }
-
-        refreshSession();
     }
 
     private void refreshSession() {
         String refreshToken = sessionManager.getRefreshToken();
         if (refreshToken == null || refreshToken.isEmpty()) {
-            sessionManager.clear();
-            goToLanguageSelect();
+            enterOfflineMode();
             return;
         }
 
@@ -83,14 +92,7 @@ public class SplashScreen extends AppCompatActivity {
                     }
                 }
 
-                if (response.code() == 401 || response.code() == 403) {
-                    sessionManager.clear();
-                    Toast.makeText(SplashScreen.this, R.string.session_expired, Toast.LENGTH_LONG).show();
-                    goToLogin();
-                    return;
-                }
-
-                // Server problem: let the user in offline rather than locking them out.
+                // If token refresh fails, do not lock out the user: enter offline mode to ensure safety
                 enterOfflineMode();
             }
 
@@ -110,11 +112,14 @@ public class SplashScreen extends AppCompatActivity {
      * stored refresh token is kept so the next launch can retry the refresh.
      */
     private void enterOfflineMode() {
-        if (!sessionManager.hasSession()) {
-            goToLanguageSelect();
+        android.content.SharedPreferences sp =
+                getSharedPreferences(getString(R.string.sharedpref_name), MODE_PRIVATE);
+        boolean isLoggedIn = sp.getBoolean(getString(R.string.login_status), false)
+                || sessionManager.hasSession();
+        if (!isLoggedIn) {
+            goToLogin();
             return;
         }
-        Toast.makeText(this, R.string.offline_mode_message, Toast.LENGTH_LONG).show();
         goToMain();
     }
 

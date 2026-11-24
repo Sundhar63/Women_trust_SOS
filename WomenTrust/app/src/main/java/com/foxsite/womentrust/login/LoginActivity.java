@@ -97,6 +97,14 @@ public class LoginActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPreferences = getSharedPreferences(getString(R.string.sharedpref_name), Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean(getString(R.string.login_status), false)
+                || SessionManager.get(this).hasSession();
+        if (isLoggedIn) {
+            Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+            finish();
+            startActivity(mainIntent);
+            return;
+        }
         loadingDialog = new LoadingDialog(this);
 
         editusername = findViewById(R.id.username_edittext);
@@ -294,6 +302,12 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.remove(getString(R.string.password));
 
                                 editor.putBoolean(getString(R.string.login_status), true);
+                                if (!token.isEmpty()) {
+                                    editor.putString("jwt_token", token);
+                                }
+                                if (!refreshToken.isEmpty()) {
+                                    editor.putString("refresh_token", refreshToken);
+                                }
                                 editor.apply();
 
                                 if (!token.isEmpty() && !refreshToken.isEmpty()) {

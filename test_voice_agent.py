@@ -73,15 +73,17 @@ def load_transcriptions() -> List[Dict[str, Any]]:
 
 def check_api_keys() -> bool:
     """Verify LLM API key availability."""
+    nvidia_key = os.getenv("NVIDIA_API_KEY") or os.getenv("NVIDIA_NIMS_API_KEY")
     groq_key = os.getenv("GROQ_API_KEY")
     openrouter_key = os.getenv("OPENROUTER_API_KEY")
 
     print("\n--- Voice Agent API Key Status ---")
+    print(f"NVIDIA_API_KEY     : {'[CONFIGURED]' if nvidia_key else '[MISSING]'}")
     print(f"GROQ_API_KEY       : {'[CONFIGURED]' if groq_key else '[MISSING]'}")
     print(f"OPENROUTER_API_KEY : {'[CONFIGURED]' if openrouter_key else '[MISSING]'}")
 
-    if not groq_key and not openrouter_key:
-        print("\n[WARNING] Neither GROQ_API_KEY nor OPENROUTER_API_KEY found.")
+    if not nvidia_key and not groq_key and not openrouter_key:
+        print("\n[WARNING] Neither NVIDIA_API_KEY, GROQ_API_KEY, nor OPENROUTER_API_KEY found.")
         print("Please configure an API key in .env to run live agent classification.")
         return False
     return True

@@ -44,6 +44,7 @@ import com.google.gson.JsonObject;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -721,7 +722,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return level;
     }
 
+    private boolean isMandatoryHighSeverity(String cat, String subCat, String catViol, List<String> subCatViolations) {
+        StringBuilder sb = new StringBuilder();
+        if (cat != null) sb.append(cat).append(" ");
+        if (subCat != null) sb.append(subCat).append(" ");
+        if (catViol != null) sb.append(catViol).append(" ");
+        if (subCatViolations != null) {
+            for (String s : subCatViolations) {
+                if (s != null) sb.append(s).append(" ");
+            }
+        }
+        String lower = sb.toString().toLowerCase();
+        return lower.contains("alcohol") || lower.contains("drunk") || lower.contains("drink") || lower.contains("booze") || lower.contains("liquor") || lower.contains("wine") || lower.contains("beer") || lower.contains("substance")
+                || lower.contains("போதை") || lower.contains("குடி") || lower.contains("சாராயம்") || lower.contains("மது")
+                || lower.contains("physical") || lower.contains("hitting") || lower.contains("slap") || lower.contains("beat") || lower.contains("kick") || lower.contains("push") || lower.contains("punch") || lower.contains("harm") || lower.contains("injury") || lower.contains("burning") || lower.contains("scalding") || lower.contains("strike")
+                || lower.contains("அடி") || lower.contains("உதை") || lower.contains("தாக்குதல்") || lower.contains("உடல் ரீதியான")
+                || lower.contains("child") || lower.contains("minor") || lower.contains("pocso") || lower.contains("குழந்தை") || lower.contains("சிறுமி") || lower.contains("மைனர்")
+                || lower.contains("eve teasing") || lower.contains("eve-teasing") || lower.contains("eveteasing") || lower.contains("school girl") || lower.contains("schoolgirl") || lower.contains("school") || lower.contains("catcall") || lower.contains("stalking")
+                || lower.contains("ஈவ்டீசிங்") || lower.contains("மாணவி") || lower.contains("பள்ளி");
+    }
+
     private void openAbuseReport(String categoryId, String violence, String subViolence, String categoryViolence, ArrayList<String> violations, String abuseLevel, int rating) {
+        if (isMandatoryHighSeverity(violence, subViolence, categoryViolence, violations)) {
+            rating = Math.max(rating, 11);
+            abuseLevel = "High";
+        }
         String displayLevel = localizeAbuseLevel(abuseLevel);
         String statusMsg;
         if (!displayLevel.isEmpty()) {

@@ -44,7 +44,7 @@ VALUES
 ('Moderate', 5, 'Active', 'telemanas_logo.png', 4, '4 - Identify Early & report within family', '4 - ஆரம்பத்திலேயே கண்டறிந்து குடும்பத்திற்குள் தெரிவிக்கவும்', '14416', 'https://telemanas.mohf.gov.in/home'),
 ('Moderate', 5, 'Active', 'telemanas_logo.png', 5, '5 - ''No'' Means ''No''', '5 - ''இல்லை'' என்றால் ''இல்லை'' என்று உறுதியாக இருங்கள்', '14416', 'https://telemanas.mohf.gov.in/home'),
 ('Moderate', 5, 'Active', 'telemanas_logo.png', 6, '6 - Be cautious & aware of external and legal remedy', '6 - வெளிப்புற மற்றும் சட்டப்பூர்வ தீர்வுகள் குறித்து எச்சரிக்கையாகவும் விழிப்புணர்வுடனும் இருங்கள்', '14416', 'https://telemanas.mohf.gov.in/home'),
-('Moderate', 5, 'Active', 'telemanas_logo.png', 7, '7 - https://telemanas.mohf.gov.in/home', '7 - https://telemanas.mohf.gov.in/home', '14416', 'https://telemanas.mohf.gov.in/home')
+('Moderate', 5, 'Active', 'telemanas_logo.png', 7, '7 - Tele-MANAS 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support - https://telemanas.mohf.gov.in/home)', '7 - டெலிமானாஸ் 24x7 கட்டணமில்லா உதவி எண்: 14416 / மாற்று எண்: 1-800-891-4416 (இலவச மற்றும் ரகசிய ஆதரவு - https://telemanas.mohf.gov.in/home)', '14416 / 1-800-891-4416', 'https://telemanas.mohf.gov.in/home')
 ON CONFLICT DO NOTHING;
 
 -- 3. Severe (>= 10)
@@ -53,7 +53,7 @@ VALUES
 ('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 1, '1 - Consult A Legal Advisor', '1 - சட்ட ஆலோசகரை அணுகவும்', '181', 'https://www.womentrust.org/help'),
 ('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 2, '2 - Talk To a family therapist Dr. Saranya Sundaraju 9500185855', '2 - குடும்ப ஆலோசகர் டாக்டர் சரண்யா சுந்தரராஜுவுடன் பேசவும் 9500185855', '9500185855', 'https://www.womentrust.org/help'),
 ('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 3, '3 - Save Counselling 9842868900', '3 - சேவ் ஆலோசனை மையம் 9842868900', '9842868900', 'https://www.womentrust.org/help'),
-('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 4, '4 - Telemanas Nimhans', '4 - டெலிமானாஸ் நிம்ஹான்ஸ் (Telemanas Nimhans)', '14416', 'https://telemanas.mohf.gov.in/home'),
+('Severe', 10, 'Active', 'telemanas_logo.png', 4, '4 - Telemanas Nimhans 24x7 Toll-Free Helpline: 14416 / Alternative: 1-800-891-4416 (Free & Confidential Support)', '4 - டெலிமானாஸ் நிம்ஹான்ஸ் 24x7 கட்டணமில்லா உதவி எண்: 14416 / மாற்று எண்: 1-800-891-4416 (இலவச மற்றும் ரகசிய ஆதரவு)', '14416 / 1-800-891-4416', 'https://telemanas.mohf.gov.in/home'),
 ('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 5, '5 - KAVALAN UDANI APP', '5 - காவலன் உதவி செயலி (Kavalan Uthavi App)', '100', 'https://www.womentrust.org/help'),
 ('Severe', 10, 'Active', 'tamilnadu_police_kaaval_uthavi.png', 6, '6 - NCW Women Helpline 181', '6 - தேசிய மகளிர் ஆணைய உதவி எண் 181', '181', 'https://ncw.nic.in')
 ON CONFLICT DO NOTHING;

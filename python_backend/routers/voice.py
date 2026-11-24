@@ -15,9 +15,10 @@ load_dotenv()
 
 router = APIRouter(prefix="/api/Voice", tags=["Voice"])
 
-SPEECHMATICS_API_KEY = os.getenv("SPEECHMATICS_API_KEY")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+NVIDIA_API_KEY = (os.getenv("NVIDIA_API_KEY") or os.getenv("NVIDIA_NIMS_API_KEY") or "").strip() or None
+SPEECHMATICS_API_KEY = (os.getenv("SPEECHMATICS_API_KEY") or "").strip() or None
+GROQ_API_KEY = (os.getenv("GROQ_API_KEY") or "").strip() or None
+OPENROUTER_API_KEY = (os.getenv("OPENROUTER_API_KEY") or "").strip().lower() or None
 
 # Android App Scale: 1-4 Mild (Green), 5-9 Moderate (Yellow), 10+ Severe (Red)
 MAX_RATING = 17
@@ -42,7 +43,7 @@ ALERTS_TA = {
 # =====================================================================
 # IN-MEMORY HIERARCHICAL TREE (Cached from PostgreSQL Master Tables)
 # =====================================================================
-TAXONOMY_TTL = 60
+TAXONOMY_TTL = 3600
 _TREE_CACHE = {"tree": None, "by_category_code": {}, "at": 0.0}
 
 def _build_hierarchy_tree_from_db():
@@ -123,38 +124,87 @@ async def get_taxonomy_tree():
 
 
 # =====================================================================
-# FAST LLM CALL HELPER (Groq / OpenRouter)
+# FAST LLM CALL HELPER (NVIDIA NIM -> Groq -> OpenRouter)
 # =====================================================================
+def _parse_json_safe(raw: str) -> Optional[Dict]:
+    if not raw:
+        return None
+    raw = raw.strip()
+    if raw.startswith("```"):
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw)
+    try:
+        return json.loads(raw)
+    except Exception:
+        match = re.search(r"\{.*\}", raw, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(0))
+            except Exception:
+                pass
+    return None
+
+
 async def _call_llm_json(prompt: str) -> Optional[Dict]:
     messages = [{"role": "user", "content": prompt}]
+
+    # 1st: NVIDIA NIM (1st: deepseek-ai/deepseek-v4-flash, 2nd: mistralai/mistral-large-4-1t-a52b)
+    if NVIDIA_API_KEY:
+        for n_model in ["deepseek-ai/deepseek-v4-flash", "mistralai/mistral-large-4-1t-a52b"]:
+            try:
+                resp = await asyncio.to_thread(
+                    requests.post,
+                    "https://integrate.api.nvidia.com/v1/chat/completions",
+                    headers={"Authorization": f"Bearer {NVIDIA_API_KEY}", "Content-Type": "application/json"},
+                    json={"model": n_model, "messages": messages, "temperature": 0.0, "response_format": {"type": "json_object"}},
+                    timeout=15
+                )
+                if resp.status_code == 200:
+                    parsed = _parse_json_safe(resp.json()["choices"][0]["message"]["content"])
+                    if parsed:
+                        return parsed
+                else:
+                    print(f"[nvidia:{n_model}] status {resp.status_code}")
+            except Exception as e:
+                print(f"[nvidia:{n_model}] error: {e}")
+
+    # 2nd: Groq (Llama / GPT-OSS models)
     if GROQ_API_KEY:
-        for model in ["llama-3.3-70b-versatile", "openai/gpt-oss-120b"]:
+        for g_model in ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]:
             try:
                 resp = await asyncio.to_thread(
                     requests.post,
                     "https://api.groq.com/openai/v1/chat/completions",
                     headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
-                    json={"model": model, "messages": messages, "temperature": 0.0, "response_format": {"type": "json_object"}},
+                    json={"model": g_model, "messages": messages, "temperature": 0.0, "response_format": {"type": "json_object"}},
                     timeout=20
                 )
                 if resp.status_code == 200:
-                    return json.loads(resp.json()["choices"][0]["message"]["content"])
+                    parsed = _parse_json_safe(resp.json()["choices"][0]["message"]["content"])
+                    if parsed:
+                        return parsed
+                else:
+                    print(f"[groq:{g_model}] status {resp.status_code}")
             except Exception as e:
-                print(f"[groq:{model}] error: {e}")
+                print(f"[groq:{g_model}] error: {e}")
 
+    # 3rd: OpenRouter Fallback
     if OPENROUTER_API_KEY:
-        try:
-            resp = await asyncio.to_thread(
-                requests.post,
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json"},
-                json={"model": "meta-llama/llama-3.3-70b-instruct:free", "messages": messages, "temperature": 0.0, "response_format": {"type": "json_object"}},
-                timeout=25
-            )
-            if resp.status_code == 200:
-                return json.loads(resp.json()["choices"][0]["message"]["content"])
-        except Exception as e:
-            print(f"[openrouter] error: {e}")
+        for o_model in ["meta-llama/llama-3.3-70b-instruct:free", "deepseek/deepseek-chat"]:
+            try:
+                resp = await asyncio.to_thread(
+                    requests.post,
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json"},
+                    json={"model": o_model, "messages": messages, "temperature": 0.0, "response_format": {"type": "json_object"}},
+                    timeout=25
+                )
+                if resp.status_code == 200:
+                    parsed = _parse_json_safe(resp.json()["choices"][0]["message"]["content"])
+                    if parsed:
+                        return parsed
+            except Exception as e:
+                print(f"[openrouter:{o_model}] error: {e}")
 
     return None
 
@@ -251,13 +301,17 @@ async def step4_extract_labels_and_assess_severity(text: str, chosen_cat_codes: 
             f"Allowed Labels: {json.dumps(valid_labels)}\n\n"
             "INSTRUCTIONS:\n"
             "1. Extract EVERY label that the speaker described (directly or by colloquial/implicit meaning).\n"
-            "2. CLINICAL SEVERITY RULES (Agent Decision):\n"
-            "   - If there is ANY physical abuse (striking, pushing, bodily harm, physical injury, trampling), "
-            "ANY alcoholic/substance abuse (intoxication, drinking, addiction debts, booze-fueled violence), "
-            "or ANY sexual abuse (assault, rape, non-consensual acts): You MUST set 'severity' to 'high' (do NOT classify as mild or moderate).\n"
-            "   - If it is verbal/emotional abuse, non-violent harassment, or non-physical stalking: set 'severity' to 'medium'.\n"
+            "2. CLINICAL SEVERITY RULES (MANDATORY AGENT DECISION):\n"
+            "   - MANDATORY HIGH SEVERITY: If the transcript or category involves:\n"
+            "     * ANY alcoholic / substance abuse (drinking, drunkenness, wine, beer, liquor, booze, போதை, குடி, மது, சாராயம்)\n"
+            "     * ANY physical abuse (striking, pushing, slapping, hitting, beating, punching, kicking, bodily harm, physical injury, trampling, scalding/burning, அடி, உதை, தாக்குதல், உடல் ரீதியான துன்புறுத்தல்)\n"
+            "     * ANY child abuse or POCSO (harm to minors/children, child neglect, child harassment, child sexual abuse, குழந்தை, சிறுமி, மைனர்)\n"
+            "     * ANY school girl / student eve-teasing or street harassment (catcalling, whistling, leering, eve-teasing, harassment of school/college girls, stalking students, பள்ளி மாணவி, ஈவ்டீசிங்)\n"
+            "     * ANY sexual abuse (assault, rape, non-consensual acts)\n"
+            "     You MUST set 'severity' to 'high' (NEVER classify as mild, low, or moderate under any circumstance).\n"
+            "   - If it is verbal/emotional abuse, non-violent harassment between adults: set 'severity' to 'medium'.\n"
             "   - If it is minor dispute without threats or violence: set 'severity' to 'low'.\n"
-            "   - Set 'is_critical' to true only if there is rape, child sexual abuse/POCSO, acid attack, or life threats.\n\n"
+            "   - Set 'is_critical' to true if there is rape, child sexual abuse/POCSO, acid attack, or life threats.\n\n"
             "Respond ONLY in JSON:\n"
             "{\n"
             '  "matched_labels": ["<label>", ...],\n'
@@ -267,11 +321,15 @@ async def step4_extract_labels_and_assess_severity(text: str, chosen_cat_codes: 
             "}\n\n"
             f'Transcript: """{text}"""'
         )
-        tasks.append((cat_data, _call_llm_json(prompt)))
+        tasks.append((cat_data, prompt))
+
+    if not tasks:
+        return []
+
+    llm_responses = await asyncio.gather(*[_call_llm_json(p) for _, p in tasks])
 
     results = []
-    for cat_data, coro in tasks:
-        res = await coro
+    for (cat_data, _), res in zip(tasks, llm_responses):
         matched = res.get("matched_labels", []) if res else []
         severity = str(res.get("severity", "low")).lower() if res else "low"
         is_critical = bool(res.get("is_critical", False)) if res else False
@@ -331,7 +389,7 @@ def build_final_response(results: List[Dict], transcript: str, tamil: bool) -> D
     total_count = len(set(all_matched_labels))
 
     # =============================================================
-    # PURELY AGENT-DRIVEN SEVERITY DECISION (NO HARDCODED REGEX/STRINGS)
+    # AGENT-DRIVEN SEVERITY DECISION WITH SAFETY MANDATE OVERRIDE
     # =============================================================
     severity_order = {"high": 2, "medium": 1, "low": 0}
     # Pick the highest severity decided by the agent across the categories
@@ -340,6 +398,34 @@ def build_final_response(results: List[Dict], transcript: str, tamil: bool) -> D
         key=lambda x: severity_order.get(x, 0)
     )
     is_critical = any(item.get("is_critical", False) for item in results)
+
+    # MANDATORY SAFETY GUARDRAIL:
+    # If there is alcoholic/substance abuse, physical abuse, child abuse, or school girl eve-teasing,
+    # severity MUST show as high (Rating >= 11, Severe/Red on Android) instead of mild or moderate.
+    combined_audit_text = (
+        transcript.lower() + " " +
+        " ".join(all_matched_labels).lower() + " " +
+        " ".join(c.get("voilence", "") + " " + c.get("sub_violence", "") + " " + c.get("category_violence", "") for c in all_classifications).lower()
+    )
+
+    high_severity_patterns = [
+        # Alcoholic / Substance abuse
+        r"\b(alcohol|alcoholic|drunk|drunkenness|drinking|booze|liquor|beer|wine|substance|intoxicat)\b",
+        r"(போதை|குடி|மது|சாராயம்)",
+        # Physical abuse
+        r"\b(physical|hitting|hit|slap|slapping|beat|beating|beaten|kick|kicking|push|pushing|punch|punching|bodily harm|injury|burning|scalding|hair pulling|strike|striking|trampl)\b",
+        r"(அடி|உதை|தாக்குதல்|உடல் ரீதியான|எரித்தல்)",
+        # Child abuse / POCSO
+        r"\b(child|minor|pocso|kid|pedophil|children|daughter|son|infant|toddler)\b",
+        r"(குழந்தை|சிறுமி|மைனர்|பச்சிளம்|சிறுவன்)",
+        # School girl / student Eve-teasing & street harassment
+        r"\b(eve teasing|eve-teasing|eveteasing|school girl|schoolgirl|school-girl|college girl|school student|catcall|cat-call|catcalling|leering|whistling|stalking)\b",
+        r"(ஈவ்டீசிங்|பள்ளி மாணவி|மாணவி|கல்லூரி மாணவி)"
+    ]
+
+    has_mandatory_high = any(re.search(pat, combined_audit_text, re.IGNORECASE) for pat in high_severity_patterns)
+    if has_mandatory_high and agent_level != "high" and not is_critical:
+        agent_level = "high"
 
     if is_critical:
         floor = CRITICAL_FLOOR  # 15
@@ -456,7 +542,25 @@ async def process_audio(file: UploadFile = File(...)):
 async def transcribe_audio(audio_bytes, filename):
     transcribed_text = None
 
-    if SPEECHMATICS_API_KEY:
+    # 1st Priority: Groq Whisper (ultra-fast real-time STT)
+    if GROQ_API_KEY:
+        for w_model in ["whisper-large-v3-turbo", "whisper-large-v3"]:
+            try:
+                url = "https://api.groq.com/openai/v1/audio/transcriptions"
+                headers = {"Authorization": f"Bearer {GROQ_API_KEY}"}
+                files = {"file": (filename, audio_bytes, "application/octet-stream")}
+                data = {"model": w_model, "response_format": "json"}
+
+                response = await asyncio.to_thread(requests.post, url, headers=headers, files=files, data=data, timeout=30)
+                if response.status_code == 200:
+                    transcribed_text = (response.json().get("text") or "").strip()
+                    if transcribed_text:
+                        return transcribed_text
+            except Exception as e:
+                print(f"[groq-whisper:{w_model}] error: {e}")
+
+    # 2nd Priority: Speechmatics (fallback)
+    if not transcribed_text and SPEECHMATICS_API_KEY:
         try:
             sm_url = "https://asr.api.speechmatics.com/v2/jobs"
             sm_headers = {"Authorization": f"Bearer {SPEECHMATICS_API_KEY}"}
@@ -483,17 +587,5 @@ async def transcribe_audio(audio_bytes, filename):
             transcribed_text = transcript_resp.content.decode("utf-8").strip()
         except Exception as e:
             print(f"[speechmatics] error: {e}")
-
-    if not transcribed_text and GROQ_API_KEY:
-        try:
-            url = "https://api.groq.com/openai/v1/audio/transcriptions"
-            headers = {"Authorization": f"Bearer {GROQ_API_KEY}"}
-            files = {"file": (filename, audio_bytes, "application/octet-stream")}
-            data = {"model": "whisper-large-v3", "response_format": "json"}
-
-            response = await asyncio.to_thread(requests.post, url, headers=headers, files=files, data=data, timeout=60)
-            transcribed_text = (response.json().get("text") or "").strip()
-        except Exception as e:
-            print(f"[groq-whisper] error: {e}")
 
     return transcribed_text

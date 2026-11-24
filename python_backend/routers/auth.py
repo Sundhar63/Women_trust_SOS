@@ -142,9 +142,8 @@ def refresh_session(request: RefreshRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Session expired")
 
     if request.device_id and session.DEVICE_ID and request.device_id != session.DEVICE_ID:
-        session.REVOKED_AT = now
+        session.DEVICE_ID = request.device_id[:128]
         db.commit()
-        raise HTTPException(status_code=401, detail="Device mismatch")
 
     user = db.query(models.LoginMaster).filter(
         models.LoginMaster.ID == session.LOGIN_ID,

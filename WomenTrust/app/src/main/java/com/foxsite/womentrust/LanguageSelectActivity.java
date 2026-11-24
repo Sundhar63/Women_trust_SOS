@@ -34,29 +34,30 @@ public class LanguageSelectActivity extends AppCompatActivity {
         cardEnglish.setOnClickListener(v -> {
             selectedLanguage = "en";
             saveLanguage(selectedLanguage);
-
-            Intent intent = new Intent(
-                    LanguageSelectActivity.this,
-                    LoginActivity.class
-            );
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
+            proceedAfterLanguageSelection();
         });
 
         /// TAMIL CLICK
         cardTamil.setOnClickListener(v -> {
             selectedLanguage = "ta";
             saveLanguage(selectedLanguage);
-
-            Intent intent = new Intent(
-                    LanguageSelectActivity.this,
-                    LoginActivity.class
-            );
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
+            proceedAfterLanguageSelection();
         });
+    }
+
+    private void proceedAfterLanguageSelection() {
+        SharedPreferences sp = getSharedPreferences(getString(R.string.sharedpref_name), MODE_PRIVATE);
+        boolean isLoggedIn = sp.getBoolean(getString(R.string.login_status), false)
+                || com.foxsite.womentrust.app_utills.SessionManager.get(this).hasSession();
+        Intent intent;
+        if (isLoggedIn) {
+            intent = new Intent(LanguageSelectActivity.this, MainActivity.class);
+        } else {
+            intent = new Intent(LanguageSelectActivity.this, LoginActivity.class);
+        }
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
     }
 
     /// SAVE LANGUAGE

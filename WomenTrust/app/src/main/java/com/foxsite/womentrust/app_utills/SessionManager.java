@@ -82,11 +82,27 @@ public final class SessionManager {
     }
 
     public String getAccessToken() {
-        return decrypt(prefs.getString(P_ACCESS, null));
+        String token = decrypt(prefs.getString(P_ACCESS, null));
+        if (token == null || token.isEmpty()) {
+            try {
+                SharedPreferences sp = appContext.getSharedPreferences(
+                        appContext.getString(com.foxsite.womentrust.R.string.sharedpref_name), Context.MODE_PRIVATE);
+                token = sp.getString("jwt_token", null);
+            } catch (Exception ignored) {}
+        }
+        return token;
     }
 
     public String getRefreshToken() {
-        return decrypt(prefs.getString(P_REFRESH, null));
+        String refresh = decrypt(prefs.getString(P_REFRESH, null));
+        if (refresh == null || refresh.isEmpty()) {
+            try {
+                SharedPreferences sp = appContext.getSharedPreferences(
+                        appContext.getString(com.foxsite.womentrust.R.string.sharedpref_name), Context.MODE_PRIVATE);
+                refresh = sp.getString("refresh_token", null);
+            } catch (Exception ignored) {}
+        }
+        return refresh;
     }
 
     public long getAccessTokenExpiresAt() {
@@ -103,7 +119,16 @@ public final class SessionManager {
     /** True when a refresh token exists, i.e. the user should not see the login screen. */
     public boolean hasSession() {
         String refresh = getRefreshToken();
-        return refresh != null && !refresh.isEmpty();
+        if (refresh != null && !refresh.isEmpty()) {
+            return true;
+        }
+        try {
+            SharedPreferences sp = appContext.getSharedPreferences(
+                    appContext.getString(com.foxsite.womentrust.R.string.sharedpref_name), Context.MODE_PRIVATE);
+            return sp.getBoolean(appContext.getString(com.foxsite.womentrust.R.string.login_status), false);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void clear() {
